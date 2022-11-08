@@ -1,0 +1,13 @@
+{
+    "name": "iutnc/atelier-app",
+    "description": "",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "iutnc\\": "./src/classes"
+        }
+    },
+    "require": {
+        "illuminate/database": "*"
+    }
+}
