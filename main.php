@@ -22,7 +22,7 @@ $router->addRoute('user',        'view_userProfil',  '\iutnc\mediaphotoapp\contr
 $router->addRoute('home','list_galeriePub',  '\iutnc\mediaphotoapp\control\HomeController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('galleryDetails','view_gallery',  '\iutnc\mediaphotoapp\control\GalleryController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
-$router->setDefaultRoute('view_userProfil');
+$router->setDefaultRoute('list_galeriePub');
 
 
 $router->run();
