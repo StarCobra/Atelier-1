@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 09 nov. 2022 à 09:00
+-- Généré le : mer. 09 nov. 2022 à 09:26
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -46,14 +46,22 @@ CREATE TABLE IF NOT EXISTS `access_user_gallery` (
 DROP TABLE IF EXISTS `gallery`;
 CREATE TABLE IF NOT EXISTS `gallery` (
   `gallery_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
   `description` text,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `status` tinyint(1) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`gallery_id`),
   KEY `gallery_gallery_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `gallery`
+--
+
+INSERT INTO `gallery` (`gallery_id`, `name`, `description`, `created_at`, `updated_at`, `status`, `user_id`) VALUES
+(1, 'MyGallery', 'Lorem ipsum dolor sit amet consectetur.', '1970-01-01 00:00:00', '1970-01-01 00:00:00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +153,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `mail_address` text,
   `password` text,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `fullname`, `mail_address`, `password`) VALUES
+(1, 'Paul', 'Paul Smart', 'damien@paulgmail.com', 'jpp');
 
 --
 -- Contraintes pour les tables déchargées
