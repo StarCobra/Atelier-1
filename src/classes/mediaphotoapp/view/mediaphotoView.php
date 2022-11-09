@@ -9,11 +9,10 @@ class MediaphotoView extends AbstractView
     protected function makeBody(): string
     {
         return "\n<header>
-                    <img src = '/html/img/Logo_mediaphoto.png' 
-                         alt = 'Logo de l'application.'>
-                    <input type = 'text' name = 'recherche' placeholder = 'Recherche par #Tags'>
-                    <button>Connexion / Déconnexion</button>
-                    <button>Inscription / Profil </button>
+                    \n<img src = 'html/img/Logo_mediaphoto.png' alt = 'Logo de l'application.'>
+                    \n<input type = 'text' name = 'recherche' placeholder = 'Recherche par #Tags'>
+                    \n<button>Connexion / Déconnexion</button>
+                    \n<button>Inscription / Profil </button>
                 \n</header>
 
                 \n<section>

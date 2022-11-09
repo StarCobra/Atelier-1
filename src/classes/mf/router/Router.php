@@ -78,14 +78,16 @@ class Router extends AbstractRouter
      * Note : exécuter une route revient a instancier le contrôleur
      *        de la route et exécuter sa méthode execute
      */
+    $action = null;
+    if ($action != null) {
+      $action = $this->request->get['action'];
+    }
     $defaut_action = self::$aliases['default'];
-    $action = $this->request->get['action'];
 
     // if ((TweeterAuthentification::checkAccessRight(self::$routes["$action"][1]))) {
 
     if (!isset($this->request->get['action'])) {
       $ctrl = self::$routes["$defaut_action"];
-      echo "${ctrl[0]}";
       $home = new $ctrl[0];
       $home->execute();
     } else {

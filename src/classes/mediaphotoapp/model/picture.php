@@ -10,7 +10,8 @@ class Picture extends \Illuminate\Database\Eloquent\Model
     public function PicturesToAdd(){
         return $this->belongsToMany('iutnc\mediaphotoapp\model\gallery','picture_to_gallery','picture_id','gallery_id');
     }
-    public function pictureWhereTags(){
+
+    public function pictureTags(){
         return $this->belongsToMany('iutnc\mediaphotoapp\model\tag','picture_to_tag','picture_id','tag_id');
 
     }
