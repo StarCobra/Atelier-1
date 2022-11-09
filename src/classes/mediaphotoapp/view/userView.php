@@ -9,7 +9,8 @@ class UserView extends MediaphotoView implements Renderer
     public function render(): string
     {
         $user = $this->data[0];
-        $infoProfil = "<h3>Mon profil</h3>\n<p>" . $user->fullname . "</p>\n<p>" . $user->username . "</p>\n<h3>Mes galeries</h3>\n<button>Ajouter galerie</button>";
+        $rt = (new \iutnc\mf\router\Router())->urlFor('createGallery', [['id', $user->user_id]]);
+        $infoProfil = "<h3>Mon profil</h3>\n<p>" . $user->fullname . "</p>\n<p>" . $user->username . "</p>\n<h3>Mes galeries</h3>\n<a href = '".$rt."'>\n<button>Créer galerie</button>\n</a>";
     
         $finalView = "";
 
@@ -21,11 +22,11 @@ class UserView extends MediaphotoView implements Renderer
 
             $image = "<div>\n<img src = upload/".$picture[0]->file.">\n";
 
-            $description = $v->name . "<br>" . $user->username . "<br>";
+            $description = $v->name . "" . $user->username . "";
             for ($i = 0; $i < count($tag); $i++) {
                 $tags .= $tag[$i]->name." ";
             }
-            $description .= $tags . "<br></div>";
+            $description .= $tags . "</div>";
 
             $finalView .= $image . $description;
         }
