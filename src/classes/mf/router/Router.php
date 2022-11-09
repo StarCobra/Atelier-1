@@ -88,7 +88,6 @@ class Router extends AbstractRouter
 
     if (!isset($this->request->get['action'])) {
       $ctrl = self::$routes["$defaut_action"];
-      //echo "${ctrl[0]}";
       $home = new $ctrl[0];
       $home->execute();
     } else {
