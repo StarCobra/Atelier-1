@@ -14,9 +14,6 @@ class CreateGalleryView extends MediaphotoView implements Renderer
                     \n<label for = 'name'>Nom de la galerie</label>
                     \n<input type = 'text' name = 'name' placeholder = 'Nom'>
 
-                    \n<label for = 'mots'>Liste de mots-clés</label>
-                    \n<input type = 'text' name = 'mots' placeholder = '#Tags, #Tags'>
-
                     \n<label for = 'description'>Description</label>
                     \n<input type = 'text' name = 'description' placeholder = 'Description'>
 
