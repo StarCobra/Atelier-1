@@ -12,12 +12,13 @@ class GalleryView extends MediaphotoView implements Renderer
         $html = "";
 
         $galleryPictures = $gallery->galleryPictures()->get();
-       
+        $picturesNumber = count($galleryPictures);
+
         $galleryTags = $gallery->galleryTags()->get();
         
         
         $creator = $gallery->user()->first();
-        $html .="<div>$gallery->name<br>$creator->fullname<br>"; 
+        $html .="<div>$gallery->name<br>$creator->fullname<br>le nombre des photos :$picturesNumber<br>date de création :$gallery->created_at<br>"; 
         foreach ($galleryTags as $v2) {
            $html .="$v2->name<br></div>";
         }
