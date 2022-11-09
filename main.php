@@ -17,11 +17,13 @@ $db->setAsGlobal();
 
 $router = new \iutnc\mf\router\Router();
 
+
 $router->addRoute('user',        'view_userProfil',  '\iutnc\mediaphotoapp\control\userController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('home','list_galeriePub',  '\iutnc\mediaphotoapp\control\HomeController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('galleryDetails','view_gallery',  '\iutnc\mediaphotoapp\control\GalleryController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 $router->setDefaultRoute('view_userProfil');
+
 
 $router->run();
 
