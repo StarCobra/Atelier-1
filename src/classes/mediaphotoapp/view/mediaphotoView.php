@@ -4,7 +4,7 @@ namespace iutnc\mediaphotoapp\view;
 
 use iutnc\mf\view\AbstractView;
 
-class TweeterView extends AbstractView
+class MediaphotoView extends AbstractView
 {
     protected function makeBody(): string
     {
