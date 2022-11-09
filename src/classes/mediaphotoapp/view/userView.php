@@ -16,8 +16,8 @@ class UserView extends MediaphotoView implements Renderer
 
         $galleries = $this->data[1];
         foreach ($galleries as $v) {
-            $tag = $v->galleryWhereTags()->get();
-            $picture = $v->galleryWhereAddPicture()->get();
+            $tag = $v->galleryTags()->get();
+            $picture = $v->galleryPictures()->get();
             $tags = "";
 
             $image = "<div>\n<img src = upload/".$picture[0]->file.">\n";
