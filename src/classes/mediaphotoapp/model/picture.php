@@ -8,10 +8,10 @@ class Picture extends \Illuminate\Database\Eloquent\Model
     public $timestamps = false;      
 
     public function PicturesToAdd(){
-        return $this->belongsToMany('gallery','picture_to_gallery','picture_id','gallery_id');
+        return $this->belongsToMany('iutnc\mediaphotoapp\model\gallery','picture_to_gallery','picture_id','gallery_id');
     }
     public function pictureWhereTags(){
-        return $this->belongsToMany('tag','picture_to_tag','picture_id','tag_id');
+        return $this->belongsToMany('iutnc\mediaphotoapp\model\tag','picture_to_tag','picture_id','tag_id');
 
     }
 }
