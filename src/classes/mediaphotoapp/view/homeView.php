@@ -16,11 +16,12 @@ class HomeView extends MediaphotoView implements Renderer
             $galleryPictures = $v->galleryPictures()->get();
             $creator = $v->user()->first();
             $galleryLength = count($galleryPictures);
-            $randomNumber = rand(0,$galleryLength);
-            $randomNumber1 = $randomNumber - 1;
+            $randomNumber = rand(0,$galleryLength - 1);
+            $randomNumber1 = $randomNumber;
             $randomPicture = $galleryPictures[$randomNumber1];
+            $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
            
-                $html .= "<div> <img src="."upload/".$randomPicture->file."><p>$v->name</p><p>$creator->fullname</p></div>";
+                $html .= "<div> <a href = $url_gallery><img src="."upload/".$randomPicture->file."></a><p>$v->name</p><p>$creator->fullname</p></div>";
             
            
         }

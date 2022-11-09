@@ -15,7 +15,8 @@ $db->setAsGlobal();
 
 $router = new \iutnc\mf\router\Router();
 
-$router->addRoute('home',        'list_galeriePub',  '\iutnc\mediaphotoapp\control\HomeController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('home','list_galeriePub',  '\iutnc\mediaphotoapp\control\HomeController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('galleryDetails','view_gallery',  '\iutnc\mediaphotoapp\control\GalleryController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 // $router->addRoute('connecte',    'list_galeriePriv', '\iutnc\mediaphotoapp\control\#', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 // $router->addRoute('connexion',   'view_connexion',   '\iutnc\mediaphotoapp\control\#', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 // $router->addRoute('inscription', 'view_inscription', '\iutnc\mediaphotoapp\control\#', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
