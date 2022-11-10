@@ -28,6 +28,7 @@ $router->addRoute('inscription',    'view_inscription', '\iutnc\mediaphotoapp\co
 
 $router->setDefaultRoute('list_galeriePub');
 
+\iutnc\mf\view\AbstractView::AddStyleSheet("./html/css/style.css");
 
 $router->run();
 

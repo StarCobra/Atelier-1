@@ -17,7 +17,7 @@ class UserController extends \iutnc\mf\control\AbstractController
             $data = [$user, $galleries];
 
             $instance = new UserView($data);
-            \iutnc\mf\view\AbstractView::setAppTitle("Madia Photo : Utilisateur");
+            \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Utilisateur");
             $instance->makePage();
         }
     }

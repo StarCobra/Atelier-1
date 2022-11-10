@@ -16,19 +16,24 @@ class MediaphotoView extends AbstractView
                     \n<a href = 'main.php'>
                         \n<img src = 'html/img/Logo_mediaphoto.png' alt = 'Logo de l'application.'>
                     \n</a>
-                    \n<input type = 'text' name = 'recherche' placeholder = 'Recherche par #Tags'>
-                    \n<button>
-                        \n<a href = '$url_connexion'>Connexion</a>
-                    \n</button>
-                    \n<button>
-                        \n<a href = '$url_deconnexion'>Déconnexion</a>
-                    \n</button>
-                    \n<button>
-                        \n<a href = '$url_inscription'>Inscription</a>
-                    \n</button>
-                    \n<button>
-                        \n<a href = '#'>Profil</a>
-                    \n</button>
+                    \n<form action = ''>
+                      \n<input type = 'text' name = 'recherche' placeholder = 'Recherche par #Tags'>
+                      \n<button>Go</button>
+                    \n</form>
+                    \n<div>
+                      \n<button>
+                          \n<a href = '$url_connexion'>Connexion</a>
+                      \n</button>
+                      \n<button>
+                          \n<a href = '$url_deconnexion'>Déconnexion</a>
+                      \n</button>
+                      \n<button>
+                          \n<a href = '$url_inscription'>Inscription</a>
+                      \n</button>
+                      \n<button>
+                          \n<a href = '#'>Profil</a>
+                      \n</button>
+                    \n</div>
                 \n</header>
 
                 \n<section>
