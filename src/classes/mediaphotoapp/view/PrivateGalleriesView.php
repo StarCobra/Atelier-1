@@ -5,20 +5,34 @@ namespace iutnc\mediaphotoapp\view;
 use iutnc\mf\view\Renderer;
 use iutnc\mediaphotoapp\view\MediaphotoView;
 
-class HomeView extends MediaphotoView implements Renderer
+class PrivateGalleriesView extends MediaphotoView implements Renderer
 {
     public function render(): string
-    {
-        $publicGalleries = $this->data;
+    
+    { 
+        $myOwnGalleries = $this->data[0];
+        $privateGalleriesCanVisit = $this->data[1];
+        $publicGalleries = $this->data[2];
+        $allGalleries = [];
+       foreach ($publicGalleries as $v) {
+       array_push($allGalleries,$v);
+       }
+       foreach ($myOwnGalleries as $v) {
+        array_push($allGalleries,$v);
+        }
+        foreach ($privateGalleriesCanVisit as $v) {
+            array_push($allGalleries,$v);
+            }
+          
+
         $html = "";
 
 
-        foreach ($publicGalleries as $v) {
+        foreach ($allGalleries as $v) {
 
             $galleryPictures = $v->pictures()->get();
             if (!is_null($galleryPictures) ) {
-                
-          
+
             $picturesNumber = count($galleryPictures);
             if ($picturesNumber != 0) {
                 $galleryLength = count($galleryPictures);
@@ -35,12 +49,9 @@ class HomeView extends MediaphotoView implements Renderer
                 $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><p>$v->name</p><p><a href = '$url_creator'>$creator->username</a></p><p>$picturesNumber</p></div>";
             } else {
                 $html .= "<div><p><a href = $url_gallery>$v->name</a></p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
-            }
-        }
+            }}
         }
 
         return $html;
     }
-
-    
 }

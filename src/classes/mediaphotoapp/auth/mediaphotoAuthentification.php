@@ -1,6 +1,7 @@
 <?php
 namespace iutnc\mediaphotoapp\auth;
 
+use iutnc\mediaphotoapp\model\User;
 use iutnc\mf\auth\AbstractAuthentification;
 use iutnc\mf\exceptions\AuthentificationException;
 
@@ -27,7 +28,6 @@ class mediaphotoAuthentification extends AbstractAuthentification
              $u->fullname = $fullname ;
              $u->username = $username;
              $u->password = $empreinte;
-             $u->mail_address = $mail_address;
              $u->level = $level;
              $u->save();
          }

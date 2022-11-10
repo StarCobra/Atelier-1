@@ -29,7 +29,7 @@ class InscriptionController extends AbstractController
 
             $fullname = $firstName." ".$name;
 
-            if((!empty($firstName))&&(!empty($name))&&(!empty($username))(!empty($password)&&(!empty($mail)))){
+            if((!empty($firstName))&&(!empty($name))&&(!empty($username))&&(!empty($password)&&(!empty($mail)))){
 
             mediaphotoAuthentification::register($username,$password,$fullname,$level=mediaphotoAuthentification::ACCESS_LEVEL_USER);
         Router::executeRoute('view_connexion');

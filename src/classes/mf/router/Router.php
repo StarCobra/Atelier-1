@@ -112,6 +112,8 @@ class Router extends AbstractRouter
     $ctrl = self::$routes[$routeAlias];
    
     $home = new $ctrl[0];
+    echo "$ctrl";
+    echo "$home";
     $home->execute();
   }
 

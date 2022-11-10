@@ -21,7 +21,9 @@ class ConnexionController extends AbstractController
             $password = $_POST['password'];
             if((!empty($username))&&(!empty($password))){
                 mediaphotoAuthentification::Login($username,$password);
-            Router::executeRoute('view_connexion');
+              
+               
+            Router::executeRoute('list_galerie');
             }else{
                 Router::executeRoute('login');
             }}
