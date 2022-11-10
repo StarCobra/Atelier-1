@@ -30,6 +30,7 @@ class HomeView extends MediaphotoView implements Renderer
             } else {
                 $html .= "<div><p>$v->name</p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
             }
+
         }
 
         return $html;

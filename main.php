@@ -25,6 +25,7 @@ $router->addRoute('galleryDetails','view_gallery',  '\iutnc\mediaphotoapp\contro
 
 $router->setDefaultRoute('list_galeriePub');
 
+\iutnc\mf\view\AbstractView::AddStyleSheet("./html/css/style.css");
 
 $router->run();
 
