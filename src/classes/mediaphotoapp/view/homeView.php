@@ -26,13 +26,25 @@ class HomeView extends MediaphotoView implements Renderer
             }
             $creator = $v->user()->first();
 
-            
             $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
             $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
             if ($picturesNumber != 0) {
-                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><p>$v->name</p><p><a href = '$url_creator'>$creator->username</a></p><p>$picturesNumber</p></div>";
+
+                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><p>$v->name</p><p><a href = '$url_user'>$creator->username</a></p><p>";
+                if ($picturesNumber <= 1){
+                    $html .= "$picturesNumber image dans la galerie</p></div>";
+                } else
+                {
+                    $html .= "$picturesNumber images dans la galerie</p></div>";
+                }
             } else {
-                $html .= "<div><p><a href = $url_gallery>$v->name</a></p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
+                $html .= "<div><p>$v->name</p><p><a href = '$url_user'>$creator->username</a></p><p>";
+                if ($picturesNumber <= 1){
+                    $html .= "$picturesNumber image dans la galerie</p></div>";
+                } else
+                {
+                    $html .= "$picturesNumber images dans la galerie</p></div>";
+                }
             }
         }
 

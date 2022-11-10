@@ -16,7 +16,7 @@ class GalleryView extends MediaphotoView implements Renderer
 
         $galleryTags = $gallery->galleryTags()->get();
         
-        
+
         $creator = $gallery->user()->first();
         $updateGallery= $this->router->urlFor('updateGallery',[['id',$gallery->gallery_id]]);
         $addPicture = $this->router->urlFor('addPicture',[['id',$gallery->gallery_id]]);
