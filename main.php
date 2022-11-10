@@ -30,6 +30,7 @@ $router->addRoute('deconnexion',    'view_deconnexion', '\iutnc\mediaphotoapp\co
 $router->addRoute('inscription',    'view_inscription', '\iutnc\mediaphotoapp\control\InscriptionController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('updateGallery','update_gallery','\iutnc\mediaphotoapp\control\UpdateGalleryController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('addPicture','add_picture_to_gallery','\iutnc\mediaphotoapp\control\AddPictureToGalleryController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('updateTags','update_tags','\iutnc\mediaphotoapp\control\UpdateTagsController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 
 \iutnc\mf\view\AbstractView::AddStyleSheet("./html/css/style.css");

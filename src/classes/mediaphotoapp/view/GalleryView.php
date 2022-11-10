@@ -19,10 +19,11 @@ class GalleryView extends MediaphotoView implements Renderer
 
         $creator = $gallery->user()->first();
         $updateGallery= $this->router->urlFor('updateGallery',[['id',$gallery->gallery_id]]);
+        $updateTags= $this->router->urlFor('updateTags',[['id',$gallery->gallery_id]]);
         $addPicture = $this->router->urlFor('addPicture',[['id',$gallery->gallery_id]]);
         $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
 
-        $html .="<div>$gallery->name<br><a href = '$url_creator'>$creator->fullname</a><br>le nombre des photos :$picturesNumber<br>description : $gallery->description<br>date de création :$gallery->created_at<br><div><a href=$updateGallery> Update </a><br><a href=$addPicture> Ajouter une photo </a></div>"; 
+        $html .="<div>$gallery->name<br><a href = '$url_creator'>$creator->fullname</a><br>le nombre des photos :$picturesNumber<br>description : $gallery->description<br>date de création :$gallery->created_at<br><div><a href=$updateGallery> Update </a><br><a href=$updateTags>Ajouter #Tags</a><br><a href=$addPicture> Ajouter une photo </a></div>"; 
 
         foreach ($galleryTags as $v2) {
            $html .="$v2->name<br></div>";
