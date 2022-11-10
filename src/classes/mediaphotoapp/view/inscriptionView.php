@@ -3,14 +3,19 @@
 namespace iutnc\mediaphotoapp\view;
 
 use iutnc\mf\view\Renderer;
+use iutnc\mediaphotoapp\view\MediaphotoView;
 
 class InscriptionView extends MediaphotoView implements Renderer
 {
     public function render(): string
     {   
+
+        $signeUp= $this->router->urlFor('inscription');
+
         $html = "<section>
+
                 <h3>Inscription</h3>
-                \n<form method = 'POST'>
+                \n<form action='$signeUp' method = 'POST'>
                     \n<input type = 'text' name = 'firstname' placeholder = 'Prénom' required>
                     \n<input type = 'text' name = 'name' placeholder = 'Nom' required>
 
