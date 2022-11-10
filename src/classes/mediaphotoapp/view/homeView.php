@@ -32,9 +32,9 @@ class HomeView extends MediaphotoView implements Renderer
             $url_user = $this->router->urlFor('user',[['id',$v->user_id]]);
                       
             if ($picturesNumber != 0) {
-                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><p>$v->name</p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
+                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><aside><h3>$v->name</h3><p>$creator->fullname<span>$picturesNumber photos</span></p></aside></div>";
             } else {
-                $html .= "<div><p>$v->name</p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
+                $html .= "<div><h3>$v->name</h3><p>$creator->fullname<span>$picturesNumber photos</span></p></div>";
             }
         }
 

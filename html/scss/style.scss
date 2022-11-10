@@ -45,6 +45,10 @@ input{
     padding: 5px 10px;
     border: 2px solid grey;
 }
+input:focus{
+    outline: none;
+    border: 2px solid black;
+}
 button {
     min-width: 40px;
     height: 40px;
@@ -56,11 +60,18 @@ button {
     border-radius: 20px;
     border: 2px solid $vert1;
     background: $vert1;
+    & > a {
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
 button:hover {
     background: #fff;
     color: $vert1;
+    & > a {
+        color: $vert1;
+    }
 }
 
 header{
@@ -71,13 +82,16 @@ header{
     background-color: $white1;
     border-bottom: 1px solid grey;
     img{
-        width: 90px;
+        width: 80px;
     }
     form{
         width: calc(6 * 100% / 12);
         input{
             width: calc(100% - 50px);
             border-radius: 20px 0 0 20px;
+            border-right: none;
+        }
+        input:focus{
             border-right: none;
         }
         button{
@@ -89,7 +103,6 @@ header{
 footer{
     display: flex;
     justify-content: center;
-    background-color: $white1;
     border-top: 1px solid grey;
     padding: 12px 0;
 }
@@ -131,8 +144,18 @@ article {
             width: 100%;
             height: 0;
             position: relative;
-            top: -1em;
             transition: all 0.3s ease;
+            padding-bottom: 8px;
+            p, h3{
+                margin-bottom: 0;
+            }
+            h3{
+                margin-top: 2px;
+            }
+            & > p:nth-child(2){
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 
@@ -142,9 +165,14 @@ article {
         }
         aside {
             opacity: 1;
-            height: 4em;
+            height: 6em;
             transition: all 0.3s ease;
         }
+    }
+
+    &>section{
+        grid-column: 1 / 13;
+        text-align: center;
     }
 
     &>div:nth-child(2n-1) {
