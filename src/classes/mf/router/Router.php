@@ -60,7 +60,6 @@ class Router extends AbstractRouter
    */
   function run(): void
   {
-    session_start();
     /*
      * Méthode run : exécuter une route en fonction de la requête 
      *    (l'action est récupérée depuis l'attribut $this->request)

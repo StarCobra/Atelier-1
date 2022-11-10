@@ -2,19 +2,29 @@
 
 namespace iutnc\mediaphotoapp\control;
 
+use iutnc\mf\router\Router;
+use iutnc\mf\control\AbstractController;
 use iutnc\mediaphotoapp\view\ConnexionView;
+use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
-class ConnexionController extends \iutnc\mf\control\AbstractController
+class ConnexionController extends AbstractController
 {
     public function execute(): void
     { 
-        $v = new ConnexionView();
-        $v->makePage();
-        if(isset($_POST["submit"])){
-        
-            $pseudo = $_GET['pseudo'];
-            $password = $_GET['password'];
+        if ($this->request->method === "GET"){
 
+            $v = new ConnexionView();
+            $v->makePage();
         }
+            else{
+            $username = $_POST['pseudo'];
+            $password = $_POST['password'];
+            if((!empty($username))&&(!empty($password))){
+                mediaphotoAuthentification::Login($username,$password);
+            Router::executeRoute('view_connexion');
+            }else{
+                Router::executeRoute('login');
+            }}
+
     }
 }

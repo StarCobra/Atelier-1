@@ -3,6 +3,7 @@
 namespace iutnc\mediaphotoapp\view;
 
 use iutnc\mf\view\Renderer;
+use iutnc\mediaphotoapp\view\MediaphotoView;
 
 class AddPictureToGalleryView extends MediaphotoView implements Renderer
 {

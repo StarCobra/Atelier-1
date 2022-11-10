@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 use iutnc\mediaphotoapp\model\Gallery;
 
@@ -28,7 +29,7 @@ $router->addRoute('galleryDetails', 'view_gallery',     '\iutnc\mediaphotoapp\co
 $router->addRoute('connexion',      'view_connexion',   '\iutnc\mediaphotoapp\control\ConnexionController',      mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('deconnexion',    'view_deconnexion', '\iutnc\mediaphotoapp\control\DeconnexionController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('inscription',    'view_inscription', '\iutnc\mediaphotoapp\control\InscriptionController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
-$router->addRoute('updateGallery','update_gallery','\iutnc\mediaphotoapp\control\UpdateGalleryController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('updateGallery','update_gallery','\iutnc\mediaphotoapp\control\UpdateGalleryController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('addPicture','add_picture_to_gallery','\iutnc\mediaphotoapp\control\AddPictureToGalleryController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 

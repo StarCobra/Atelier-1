@@ -161,7 +161,7 @@ abstract class AbstractAuthentification
 
 
         /* 
-         * La méthode login:
+         * La méthode checkPassword:
          * 
          * Méthode qui réalise la connexion d'un utilisateur.
          *
@@ -183,20 +183,7 @@ abstract class AbstractAuthentification
         if (!(password_verify($given_pass, $db_hash))) {
             throw new AuthentificationException("invalid Password !");
         } else {
-            $config = [ /* ces informations doivent être dans un fichier ini */
-                'driver'    => 'mysql',
-                'host'      => 'localhost',
-                'database'  => 'tweet',
-                'username'  => 'root',
-                'password'  => '',
-                'charset'   => 'utf8',
-                'collation' => 'utf8_unicode_ci',
-                'prefix'    => ''
-            ];
-            $db = new \Illuminate\Database\Capsule\Manager();
-            $db->addConnection($config);
-            $db->bootEloquent();
-            $db->setAsGlobal();
+            self::loadProfile ($id,$level);
         }
     }
 }
