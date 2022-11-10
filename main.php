@@ -17,17 +17,13 @@ $db->setAsGlobal();
 
 $router = new \iutnc\mf\router\Router();
 
-$router->addRoute('user',        'view_userProfil',  '\iutnc\mediaphotoapp\control\userController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
-$router->addRoute('home','list_galeriePub',  '\iutnc\mediaphotoapp\control\HomeController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
-$router->addRoute('galleryDetails','view_gallery',  '\iutnc\mediaphotoapp\control\GalleryController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('user','view_userProfil','\iutnc\mediaphotoapp\control\userController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('home','list_galeriePub','\iutnc\mediaphotoapp\control\HomeController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('galleryDetails','view_gallery','\iutnc\mediaphotoapp\control\GalleryController', iutnc\mediaphotoapp\auth\mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('updateGallery','update_gallery','\iutnc\mediaphotoapp\control\UpdateGalleryController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('addPicture','add_picture_to_gallery','\iutnc\mediaphotoapp\control\AddPictureToGalleryController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
-$router->setDefaultRoute('view_userProfil');
+
+$router->setDefaultRoute('list_galeriePub');
 
 $router->run();
-
-// $u = Gallery::select();
-// $lignes = $u->get();  
-// foreach ($lignes as $v) {   
-//     $creator = $v->user()->first();
-//        echo "Identifiant = $v->gallery_id, Nom  = $v->name, description =$v->description, propriétaire= $creator->fullname \n <br>" ;
-//     }  

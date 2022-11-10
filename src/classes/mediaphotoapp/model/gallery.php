@@ -14,12 +14,12 @@ class Gallery extends \Illuminate\Database\Eloquent\Model
         return $this->belongsToMany('iutnc\mediaphotoapp\model\user','access_gallery_user','gallery_id','user_id');
     }
 
-    public function galleryPictures(){
-        return $this->belongsToMany('iutnc\mediaphotoapp\model\picture','picture_to_gallery','gallery_id','picture_id');
-    }
     public function galleryTags(){
         return $this->belongsToMany('iutnc\mediaphotoapp\model\tag','gallery_to_tag','gallery_id','tag_id');
 
+    }
+    public function pictures(){
+        return $this->hasMany('iutnc\mediaphotoapp\model\picture','gallery_id');
     }
 
 }
