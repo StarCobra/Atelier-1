@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 09 nov. 2022 à 09:26
+-- Généré le : jeu. 10 nov. 2022 à 08:00
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -54,14 +54,15 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`gallery_id`),
   KEY `gallery_gallery_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `gallery`
 --
 
 INSERT INTO `gallery` (`gallery_id`, `name`, `description`, `created_at`, `updated_at`, `status`, `user_id`) VALUES
-(1, 'MyGallery', 'Lorem ipsum dolor sit amet consectetur.', '1970-01-01 00:00:00', '1970-01-01 00:00:00', 0, 1);
+(1, 'MyGallery', 'Lorem ipsum dolor sit amet consectetur.', '1970-01-01 00:00:00', '1970-01-01 00:00:00', 0, 1),
+(2, 'watch-me', 'vous allez trouver les meilleurs photos d\'anime', '2022-11-09 15:39:12', '2022-11-09 15:39:12', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,17 @@ CREATE TABLE IF NOT EXISTS `gallery_to_tag` (
   PRIMARY KEY (`id`),
   KEY `gallery_to_tag_tag_id` (`tag_id`),
   KEY `gallery_to_tag_gallery_id` (`gallery_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `gallery_to_tag`
+--
+
+INSERT INTO `gallery_to_tag` (`id`, `tag_id`, `gallery_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 1, 2),
+(4, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -92,7 +103,18 @@ CREATE TABLE IF NOT EXISTS `picture` (
   `file` text,
   `added_date` datetime DEFAULT NULL,
   PRIMARY KEY (`picture_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `picture`
+--
+
+INSERT INTO `picture` (`picture_id`, `type`, `file`, `added_date`) VALUES
+(1, 'png', '1.png', NULL),
+(2, 'jpg', '2.jpg', NULL),
+(3, 'png', '3.png', NULL),
+(4, 'jpg', '4.jpg', NULL),
+(5, 'webp', '5.webp', NULL);
 
 -- --------------------------------------------------------
 
@@ -108,7 +130,20 @@ CREATE TABLE IF NOT EXISTS `picture_to_gallery` (
   PRIMARY KEY (`id`),
   KEY `picture_to_gallery_gallery_id` (`gallery_id`),
   KEY `picture_to_gallery_picture_id` (`picture_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `picture_to_gallery`
+--
+
+INSERT INTO `picture_to_gallery` (`id`, `gallery_id`, `picture_id`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 2, 3),
+(4, 2, 4),
+(5, 2, 5),
+(6, 1, 5),
+(7, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -124,7 +159,20 @@ CREATE TABLE IF NOT EXISTS `picture_to_tag` (
   PRIMARY KEY (`id`),
   KEY `picture_to_tag_tag_id` (`tag_id`),
   KEY `picture_to_tag_picture_id` (`picture_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `picture_to_tag`
+--
+
+INSERT INTO `picture_to_tag` (`id`, `tag_id`, `picture_id`) VALUES
+(1, 3, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 2, 1),
+(6, 2, 2),
+(7, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -137,7 +185,16 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text,
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `tag`
+--
+
+INSERT INTO `tag` (`tag_id`, `name`) VALUES
+(1, '#anime'),
+(2, '#action'),
+(3, '#characters');
 
 -- --------------------------------------------------------
 

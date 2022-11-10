@@ -7,14 +7,16 @@ use iutnc\mf\view\Renderer;
 class HomeView extends MediaphotoView implements Renderer
 {
     public function render(): string
-    {   
-        $publicGalleries=$this->data;
+    {
+        $publicGalleries = $this->data;
         $html = "";
 
 
         foreach ($publicGalleries as $v) {
+
             $galleryPictures = $v->pictures()->get();
             
+
             $picturesNumber = count($galleryPictures);
             if ($picturesNumber != 0) {
                 $galleryLength = count($galleryPictures);
@@ -23,6 +25,7 @@ class HomeView extends MediaphotoView implements Renderer
                 $randomPicture = $galleryPictures[$randomNumber1];
             }
             $creator = $v->user()->first();
+
             
             $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
             $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
@@ -31,10 +34,6 @@ class HomeView extends MediaphotoView implements Renderer
             } else {
                 $html .= "<div><p><a href = $url_gallery>$v->name</a></p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
             }
-
-             
-            
-           
         }
 
         return $html;
