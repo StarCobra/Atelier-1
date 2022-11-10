@@ -9,7 +9,7 @@ class User extends \Illuminate\Database\Eloquent\Model
     public function galleries(){
         return $this->hasMany('iutnc\mediaphotoapp\model\gallery','user_id');
     }
-    public function usersHasAccess(){
-        return $this->belongsToMany('iutnc\mediaphotoapp\model\gallery','access_gallery_user','user_id','gallery_id');
+    public function galleriesAccess(){
+        return $this->belongsToMany('iutnc\mediaphotoapp\model\gallery','access_user_gallery','user_id','gallery_id');
     }
 }

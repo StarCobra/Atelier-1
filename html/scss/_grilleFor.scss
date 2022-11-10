@@ -1,0 +1,23 @@
+@media screen and (min-width: 0px){
+    @for $i from 1 through $nb_col {
+        .s#{$i}{
+            width: $i * $lg_col + ($i - 1) * $lg_gut;
+        }
+    }
+}
+
+@media screen and (min-width: 600px){
+    @for $i from 1 through $nb_col {
+        .m#{$i}{
+            width: $i * $lg_col + ($i - 1) * $lg_gut;
+        }
+    }
+}
+
+@media screen and (min-width: 992px){
+    @for $i from 1 through $nb_col {
+        .l#{$i}{
+            width: $i * $lg_col + ($i - 1) * $lg_gut;
+        }
+    }
+}
