@@ -4,15 +4,16 @@ namespace iutnc\mediaphotoapp\view;
 
 use iutnc\mf\view\Renderer;
 
-class ConnexionView extends MediaphotoView implements Renderer
+class DeconnexionView extends MediaphotoView implements Renderer
 {
     public function render(): string
     {   
         $html = "<div>
-                <h3>Connexion</h3>
+                <h3>Voulez-vous vous déconnecter ?</h3>
                 \n<form method = 'POST'>
-                    \n<input type = 'text' name = 'pseudo' placeholder = 'Pseudo'>
-                    \n<input type = 'text' name = 'password' placeholder = 'Mot de passe'>
+                    \n<button>
+                        \n<a href='main.php'>Annuler</a>
+                    \n</button>
 
                     \n<input type = 'submit' name = 'submit'>
                 \n</form>
