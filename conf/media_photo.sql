@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 10 nov. 2022 à 10:58
+-- Généré le : jeu. 10 nov. 2022 à 13:32
 -- Version du serveur : 8.0.27
 -- Version de PHP : 8.1.0
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `gallery` (
 
 INSERT INTO `gallery` (`gallery_id`, `name`, `description`, `created_at`, `updated_at`, `status`, `user_id`) VALUES
 (1, 'test1', 'come on', '1970-01-01 00:00:00', '2022-11-10 09:18:01', 0, 1),
-(2, 'watch-me', 'vous allez trouver les meilleurs photos d\'anime', '2022-11-09 15:39:12', '2022-11-09 15:39:12', 0, 1);
+(2, 'watch-me1', 'vous allez trouver les meilleurs photos d', '2022-11-09 15:39:12', '2022-11-10 11:13:25', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -185,6 +185,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `fullname` text,
   `mail_address` text,
   `password` text,
+  `level` int NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
@@ -192,8 +193,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `fullname`, `mail_address`, `password`) VALUES
-(1, 'Paul', 'Paul Smart', 'damien@paulgmail.com', 'jpp');
+INSERT INTO `user` (`user_id`, `username`, `fullname`, `mail_address`, `password`, `level`) VALUES
+(1, 'Paul', 'Paul Smart', 'damien@paulgmail.com', 'jpp', 0);
 
 --
 -- Contraintes pour les tables déchargées
