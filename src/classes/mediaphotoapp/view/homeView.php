@@ -12,7 +12,7 @@ class HomeView extends MediaphotoView implements Renderer
         $publicGalleries = $this->data;
         $html = "";
 
-
+        $html .= "<article>";
         foreach ($publicGalleries as $v) {
 
             $galleryPictures = $v->pictures()->get();
@@ -32,12 +32,13 @@ class HomeView extends MediaphotoView implements Renderer
             $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
             $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
             if ($picturesNumber != 0) {
-                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><p>$v->name</p><p><a href = '$url_creator'>$creator->username</a></p><p>$picturesNumber</p></div>";
+
+                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><aside><h3>$v->name</h3><p><a href = '$url_creator'>$creator->username</a><span>$picturesNumber photos</span></p></aside></div>";
             } else {
-                $html .= "<div><p><a href = $url_gallery>$v->name</a></p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
+                $html .= "<div><h3><a href = $url_gallery>$v->name</a></h3><p>$creator->fullname<span>$picturesNumber photos</span></p></div>";
             }
         }
-        }
+        $html .= "</article>";
 
         return $html;
     }

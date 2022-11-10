@@ -9,8 +9,11 @@ class InscriptionView extends MediaphotoView implements Renderer
 {
     public function render(): string
     {   
+
         $signeUp= $this->router->urlFor('inscription');
-        $html = "<div>
+
+        $html = "<section>
+
                 <h3>Inscription</h3>
                 \n<form action='$signeUp' method = 'POST'>
                     \n<input type = 'text' name = 'firstname' placeholder = 'Prénom' required>
@@ -24,7 +27,7 @@ class InscriptionView extends MediaphotoView implements Renderer
 
                     \n<input type = 'submit' name = 'submit' value = 'S&apos;inscrire'>
                 \n</form>
-              \n</div>";
+              \n</section>";
 
         return $html;
     }
