@@ -18,20 +18,20 @@ class GalleryView extends MediaphotoView implements Renderer
         
         
         $creator = $gallery->user()->first();
-        $html .="<section><h2>$gallery->name</h2><br>$creator->fullname<br>Nombre de photos :$picturesNumber<br>Créé le : $gallery->created_at<br>"; 
+        $html .="<section><h2>$gallery->name</h2>$creator->fullname<br>Nombre de photos : $picturesNumber<br>Créé le : $gallery->created_at<br>"; 
         foreach ($galleryTags as $v2) {
-           $html .="$v2->name<br>";
+           $html .="$v2->name ";
         }
-        $html .="</section>";
+        $html .="</section><article>";
         foreach ($galleryPictures as $v) {
             $pictureTags = $v->pictureTags()->get();
-                $html .= "<div> <img src ="."upload/".$v->file.">";
+                $html .= "<div> <a href = '#'><img src ="."upload/".$v->file."></a><aside>";
             foreach ($pictureTags as $v1) {
-                $html.= "<aside>$v1->name</aside></div>";
+                $html.= "$v1->name ";
             }
-           
+            $html .= "</aside></div>";
         }
-
+        $html .= "</article>";
         return $html;
     }
 }

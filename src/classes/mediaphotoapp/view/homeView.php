@@ -11,7 +11,7 @@ class HomeView extends MediaphotoView implements Renderer
         $publicGalleries = $this->data;
         $html = "";
 
-
+        $html .= "<article>";
         foreach ($publicGalleries as $v) {
             $galleryPictures = $v->galleryPictures()->get();
 
@@ -37,7 +37,7 @@ class HomeView extends MediaphotoView implements Renderer
                 $html .= "<div><h3>$v->name</h3><p>$creator->fullname<span>$picturesNumber photos</span></p></div>";
             }
         }
-
+        $html .= "</article>";
         return $html;
     }
 }
