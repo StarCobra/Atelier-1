@@ -7,9 +7,6 @@ use iutnc\mediaphotoapp\model\Gallery;
 use iutnc\mf\control\AbstractController;
 use iutnc\mediaphotoapp\view\UpdateGalleryView;
 
-
-
-
  class UpdateGalleryController extends AbstractController  
 {
    public function execute(): void
@@ -22,16 +19,16 @@ use iutnc\mediaphotoapp\view\UpdateGalleryView;
     }
         else{
             $gallery = Gallery::find($_GET['id']);
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $status = $_POST['confidentialite'];
-       
-    
-        $gallery->name =$name;
-        $gallery->description = $description;
-        $gallery->status =$status;
-        $gallery->save();
-        Router::executeRoute('list_galeriePub');
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $status = $_POST['confidentialite'];
+        
+        
+            $gallery->name =$name;
+            $gallery->description = $description;
+            $gallery->status =$status;
+            $gallery->save();
+            Router::executeRoute('list_galeriePub');
       }
    }
 }
