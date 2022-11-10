@@ -8,11 +8,32 @@ class MediaphotoView extends AbstractView
 {
     protected function makeBody(): string
     {
+        $url_connexion = $this->router->urlFor('connexion');
+        $url_deconnexion = $this->router->urlFor('deconnexion');
+        $url_inscription = $this->router->urlFor('inscription');
+
         return "\n<header>
-                    \n<img src = 'html/img/Logo_mediaphoto.png' alt = 'Logo de l'application.'>
-                    \n<input type = 'text' name = 'recherche' placeholder = 'Recherche par #Tags'>
-                    \n<button>Connexion / Déconnexion</button>
-                    \n<button>Inscription / Profil </button>
+                    \n<a href = 'main.php'>
+                        \n<img src = 'html/img/Logo_mediaphoto.png' alt = 'Logo de l'application.'>
+                    \n</a>
+                    \n<form action = ''>
+                      \n<input type = 'text' name = 'recherche' placeholder = 'Recherche par #Tags'>
+                      \n<button>Go</button>
+                    \n</form>
+                    \n<div>
+                      \n<button>
+                          \n<a href = '$url_connexion'>Connexion</a>
+                      \n</button>
+                      \n<button>
+                          \n<a href = '$url_deconnexion'>Déconnexion</a>
+                      \n</button>
+                      \n<button>
+                          \n<a href = '$url_inscription'>Inscription</a>
+                      \n</button>
+                      \n<button>
+                          \n<a href = '#'>Profil</a>
+                      \n</button>
+                    \n</div>
                 \n</header>
 
                 \n<section>
