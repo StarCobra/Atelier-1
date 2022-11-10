@@ -2,16 +2,16 @@
 
 namespace iutnc\mediaphotoapp\control;
 
+use iutnc\mf\router\Router;
+use iutnc\mf\control\AbstractController;
 use iutnc\mediaphotoapp\view\DeconnexionView;
+use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
-class DeconnexionController extends \iutnc\mf\control\AbstractController
+class DeconnexionController extends AbstractController
 {
     public function execute(): void
     { 
-        $v = new DeconnexionView();
-        $v->makePage();
-        if(isset($_POST["submit"])){
-
-        }
+        mediaphotoAuthentification::logout();
+    Router::executeRoute('list_galeriePub');
     }
 }

@@ -60,7 +60,6 @@ class Router extends AbstractRouter
    */
   function run(): void
   {
-    session_start();
     /*
      * Méthode run : exécuter une route en fonction de la requête 
      *    (l'action est récupérée depuis l'attribut $this->request)
@@ -111,8 +110,10 @@ class Router extends AbstractRouter
   public static function executeRoute(string $routeAlias): void
   {
     $ctrl = self::$routes[$routeAlias];
-    echo "$ctrl[0]";
+   
     $home = new $ctrl[0];
+    echo "$ctrl";
+    echo "$home";
     $home->execute();
   }
 
