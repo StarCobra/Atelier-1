@@ -27,7 +27,6 @@ class CreateGalleryView extends MediaphotoView implements Renderer
                 \n</form>
               \n</div>";
 
-
         return $html;
     }
 }

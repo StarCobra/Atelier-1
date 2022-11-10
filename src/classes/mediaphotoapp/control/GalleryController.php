@@ -13,10 +13,10 @@ use iutnc\mediaphotoapp\view\GalleryView;
 {
    public function execute(): void
    {
-$galleryId = $_GET['id'];
-   
-$gallery = Gallery::where('gallery_id','=',$galleryId)->first();
-$v = new GalleryView($gallery);
-$v->makePage();
+      $galleryId = $_GET['id'];
+         
+      $gallery = Gallery::where('gallery_id','=',$galleryId)->first();
+      $v = new GalleryView($gallery);
+      $v->makePage();
    }
 }
