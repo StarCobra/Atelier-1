@@ -24,6 +24,8 @@ $router->addRoute('home',        'list_galeriePub',  '\iutnc\mediaphotoapp\contr
 
 $router->setDefaultRoute('list_galeriePub');
 
+\iutnc\mf\view\AbstractView::AddStyleSheet("./html/css/style.css");
+
 $router->run();
 
 // $u = Gallery::select();

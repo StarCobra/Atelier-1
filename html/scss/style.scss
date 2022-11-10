@@ -38,39 +38,15 @@ html::-webkit-scrollbar-thumb {
     background-color: $vert1;
     border-radius: 5px;
 }
-
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    background-color: $white1;
-    border-bottom: 1px solid grey;
-    img{
-        width: 110px;
-    }
-}
-footer{
-    display: flex;
-    justify-content: center;
-    background-color: $white1;
-    border-top: 1px solid grey;
-}
-footer a{
-    margin-left: 8px;
-}
-button, input, div, img, aside{
-    border-radius: 10px;
-}
 input{
-    min-width: 130px;
+    min-width: 100px;
     height: 40px;
     border-radius: 20px;
     padding: 5px 10px;
     border: 2px solid grey;
 }
 button {
-    min-width: 130px;
+    min-width: 40px;
     height: 40px;
     color: #fff;
     padding: 5px 10px;
@@ -86,39 +62,96 @@ button:hover {
     background: #fff;
     color: $vert1;
 }
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: $white1;
+    border-bottom: 1px solid grey;
+    img{
+        width: 90px;
+    }
+    form{
+        width: calc(6 * 100% / 12);
+        input{
+            width: calc(100% - 50px);
+            border-radius: 20px 0 0 20px;
+            border-right: none;
+        }
+        button{
+            border-radius: 0 20px 20px 0;
+            margin-left: -5px;
+        }
+    }
+}
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: $white1;
+    border-top: 1px solid grey;
+    padding: 12px 0;
+}
+footer a{
+    margin-left: 8px;
+}
+div, img, aside{
+    border-radius: 12px;
+}
+
 img{
     width: 100%;
 }
-article{
+article {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 1.5em;
-    padding: 1em;
-    & > div {
-        aside{
-            transition: all 0.3s ease;
-            display: none;
+    padding: 2em 1em;
+
+    &>div {
+        background: #efefef;
+        box-shadow: 15px 15px 30px #cbcbcb,
+            -15px -15px 30px #ffffff;
+        height: 96%;
+        min-height: 6em;
+
+        & > div {
             position: relative;
-            top: -30%;
-            left: 0%;
-            color: white;
-            padding: 0 1em;
-            background: rgba(0, 0, 0, 0.6);
-            width: 100%;
-            height: 100%;
+            z-index: 2;
+            img{
+                transition: all 0.3s ease;
+            }
         }
-    }
-    & div:hover{
-        aside{
+        aside {
             display: flex;
             flex-direction: column;
+            opacity: 0;
+            padding: 0 1em;
+            width: 100%;
+            height: 0;
+            position: relative;
+            top: -1em;
             transition: all 0.3s ease;
         }
     }
-    & > div:nth-child(2n-1){
+
+    & div:hover {
+        & > div img {
+            border-radius: 12px 12px 0 0;
+        }
+        aside {
+            opacity: 1;
+            height: 4em;
+            transition: all 0.3s ease;
+        }
+    }
+
+    &>div:nth-child(2n-1) {
         grid-column: 1 / 7;
     }
-    & > div:nth-child(2n){
+
+    &>div:nth-child(2n) {
         grid-column: 7 / 13;
     }
 }
