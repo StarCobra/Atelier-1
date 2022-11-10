@@ -45,3 +45,4 @@ class HomeView extends MediaphotoView implements Renderer
 
     
 }
+}
