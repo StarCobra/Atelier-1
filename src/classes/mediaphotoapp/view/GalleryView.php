@@ -11,12 +11,14 @@ class GalleryView extends MediaphotoView implements Renderer
     {   
         $gallery=$this->data;
         $html = "";
+        $index = 0;
 
         $galleryPictures = $gallery->pictures()->get();
         $picturesNumber = count($galleryPictures);
 
         $galleryTags = $gallery->galleryTags()->get();
-        
+
+        $picture = \iutnc\mediaphotoapp\model\Picture::where('gallery_id','=',$gallery->gallery_id)->get();
 
         $creator = $gallery->user()->first();
 
@@ -31,10 +33,13 @@ class GalleryView extends MediaphotoView implements Renderer
         foreach ($galleryTags as $v2) {
            $html .="$v2->name ";
         }
-        $html .="<div><a href=$updateGallery> Update </a><br><a href=$addPicture> Ajouter une photo </a></div></section><article>";
-        foreach ($galleryPictures as $v) {
-            $pictureTags = $v->pictureTags()->get();
-                $html .= "<div> <a href = '#'><img src ="."upload/".$v->file."></a><aside>";
+        $html .="<div><a href=$updateGallery> Update </a><br><a href=$updateTags> Ajouter Tag </a><br><a href=$addPicture> Ajouter une photo </a></div></section><article>";
+        foreach ($galleryPictures as $v) {            
+                $pictureTags = $v->pictureTags()->get();
+                $loadPicture = $this->router->urlFor('pictureDetails',[['id',$picture[$index]->picture_id]]);
+                
+                $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside>";
+                $index++;
             foreach ($pictureTags as $v1) {
                 $html.= "$v1->name ";
             }

@@ -16,8 +16,9 @@ class HomeView extends MediaphotoView implements Renderer
         foreach ($publicGalleries as $v) {
 
             $galleryPictures = $v->pictures()->get();
-            if (!is_null($galleryPictures) ) {
-                
+            $verifGallery = $v->pictures()->first();
+
+            if (!is_null($verifGallery)) {
           
             $picturesNumber = count($galleryPictures);
             if ($picturesNumber != 0) {
