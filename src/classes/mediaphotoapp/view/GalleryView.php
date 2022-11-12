@@ -31,7 +31,7 @@ class GalleryView extends MediaphotoView implements Renderer
         foreach ($galleryTags as $v2) {
            $html .="$v2->name ";
         }
-        $html .="<div><a href=$updateGallery> Update </a><br><a href=$addPicture> Ajouter une photo </a></div></section><article>";
+        $html .="<div><a href=$updateGallery> Update </a><br><a href=$addPicture> Ajouter une photo </a><br><a href=$updateTags>Ajouter un tag</a></div></section><article>";
         foreach ($galleryPictures as $v) {
             $pictureTags = $v->pictureTags()->get();
                 $html .= "<div> <a href = '#'><img src ="."upload/".$v->file."></a><aside>";

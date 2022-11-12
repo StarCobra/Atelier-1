@@ -11,36 +11,49 @@ use iutnc\mediaphotoapp\view\UpdateTagsView;
 
 
 
- class UpdateTagsController extends AbstractController  
+class UpdateTagsController extends AbstractController
 {
    public function execute(): void
    {
-        $gallery = Gallery::find($_GET['id']);
-        
-    
-        if(isset($_POST["submitTag"])){
-         if(mb_substr($_POST["tag"], 0, 1) == "#") {
-            $req = new \iutnc\mediaphotoapp\model\Tag();
-            $req->name = $_POST["tag"];
-            $req->save();
+      $gallery = Gallery::find($_GET['id']);
+      $n = 2;
 
-            $tag = \iutnc\mediaphotoapp\model\Tag::select()->orderBy("tag_id", "DESC")->first();
+      if (isset($_POST["submitTag"])) {
+         if (mb_substr($_POST["tag"], 0, 1) == "#") {
+            mb_strtolower($_POST["tag"]);
+            $tag = $gallery->galleryTags()->get();
+
+            for ($i = 0; $i < count($tag); $i++) {
+               if ($tag[$i]->name == $_POST["tag"]) {
+                  $n = 1;
+               }  
+            }
             
-            $req1 = new \iutnc\mediaphotoapp\model\GalleryTag();
-            $req1->tag_id = $tag->tag_id;
-            $req1->gallery_id = $gallery->gallery_id;
-            $req1->save();
+            if($n = 1) {
+               $v = new UpdateTagsView($gallery);
+               $v->makePage();
+            } else {
+               $req = new \iutnc\mediaphotoapp\model\Tag();
+               $req->name = $_POST["tag"];
+               $req->save();
 
-            Router::executeRoute('view_gallery', ["gallery_id", $gallery->gallery_id]);
+               $tag = \iutnc\mediaphotoapp\model\Tag::select()->orderBy("tag_id", "DESC")->first();
+
+               $req1 = new \iutnc\mediaphotoapp\model\GalleryTag();
+               $req1->tag_id = $tag->tag_id;
+               $req1->gallery_id = $gallery->gallery_id;
+               $req1->save();
+
+               Router::executeRoute('view_gallery', ["gallery_id", $gallery->gallery_id]);
+            }
+
          } else {
             $v = new UpdateTagsView($gallery);
             $v->makePage();
          }
-
       } else {
          $v = new UpdateTagsView($gallery);
          $v->makePage();
       }
-
    }
 }
