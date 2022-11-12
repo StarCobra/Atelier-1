@@ -32,11 +32,9 @@ class UserView extends MediaphotoView implements Renderer
 
             $description = $v->name . " " . $user->username . " ";
 
-
             for ($i = 0; $i < count($tag); $i++) {
-                    $tags .= $tag[$i]->name . " ";
+                $tags .= $tag[$i]->name . " ";
             }
-
             $description .= $tags . "</div>";
 
             $finalView .= $image . $description;
