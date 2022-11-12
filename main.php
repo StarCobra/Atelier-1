@@ -30,6 +30,9 @@ $router->addRoute('addPicture',         'add_picture_to_gallery', '\iutnc\mediap
 $router->addRoute('updateTags',         'update_tags',            '\iutnc\mediaphotoapp\control\UpdateTagsController',          mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('authentificateHome', 'list_galerie',           '\iutnc\mediaphotoapp\control\PrivateGalleriesController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('pictureDetails',     'view_picture',           '\iutnc\mediaphotoapp\control\PictureController',             mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('updatePicture',      'update_picture',         '\iutnc\mediaphotoapp\control\UpdatePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('deletePicture',      'delete_picture',         '\iutnc\mediaphotoapp\control\DeletePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('deleteGallery',      'delete_gallery',         '\iutnc\mediaphotoapp\control\DeleteGalleryController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 \iutnc\mf\view\AbstractView::AddStyleSheet("./html/css/style.css");
 $router->setDefaultRoute('list_galeriePub');
