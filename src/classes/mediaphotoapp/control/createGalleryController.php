@@ -3,6 +3,8 @@
 namespace iutnc\mediaphotoapp\control;
 
 use iutnc\mediaphotoapp\view\CreateGalleryView;
+use iutnc\mediaphotoapp\model\Gallery;
+use iutnc\mf\router\Router;
 
 class CreateGalleryController extends \iutnc\mf\control\AbstractController
 {
@@ -12,8 +14,7 @@ class CreateGalleryController extends \iutnc\mf\control\AbstractController
             $instance = new CreateGalleryView();
             \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Création galerie");
             $instance->makePage();
-        }
-        if(isset($_POST["submit"])){
+        } else {
             $requete = new \iutnc\mediaphotoapp\model\Gallery();
             $requete->name = $_POST["name"];
             $requete->description = $_POST["description"];
@@ -21,6 +22,8 @@ class CreateGalleryController extends \iutnc\mf\control\AbstractController
             $requete->user_id = $_GET["id"];
 
             $requete->save();
+
+            Router::executeRoute('list_galeriePub');
         }
     }
 }
