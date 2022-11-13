@@ -11,11 +11,13 @@ use iutnc\mediaphotoapp\view\PrivateGalleriesView;
 use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
 
+
  class PrivateGalleriesController extends AbstractController  
 {
    public function execute(): void
    { 
     $id =  mediaphotoAuthentification::connectedUser();
+
     $myProfile = User::where('user_id','=',$id)->first();
     $myOwnGalleries = $myProfile->galleries()->get();
       $privateGalleriesCanVisit = $myProfile->galleriesAccess()->get();

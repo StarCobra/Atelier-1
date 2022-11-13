@@ -16,8 +16,9 @@ class CreateGalleryController extends \iutnc\mf\control\AbstractController
             $instance = new CreateGalleryView();
             \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Création galerie");
             $instance->makePage();
-        }
-   else {
+
+        } else {
+
             $requete = new \iutnc\mediaphotoapp\model\Gallery();
             $requete->name = $_POST["name"];
             $requete->description = $_POST["description"];
