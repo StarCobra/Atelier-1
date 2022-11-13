@@ -4,14 +4,14 @@ namespace iutnc\mediaphotoapp\view;
 
 use iutnc\mf\view\Renderer;
 
-class UserView extends MediaphotoView implements Renderer
+class OtherUserView extends MediaphotoView implements Renderer
 {
     public function render(): string
     {
         $user = $this->data[0];
 
         $url_createGallery = (new \iutnc\mf\router\Router())->urlFor('createGallery', [['id', $user->user_id]]);
-        $infoProfil = "<h3>Mon profil</h3>\n<p>" . $user->fullname . "</p>\n<p>" . $user->username . "</p>\n<h3>Mes galeries</h3>\n<a href = '" . $url_createGallery . "'>\n<button>Créer galerie</button>\n</a>";
+        $infoProfil = "<h3>le profil de $user->fullname </h3>\n<p> Pseudo :" . $user->username . "</p>\n<h3>Ses galeries</h3>";
         $finalView = "";
 
 
@@ -20,8 +20,7 @@ class UserView extends MediaphotoView implements Renderer
         foreach ($galleries as $v) {
             $tag = $v->galleryTags()->get();
             $picture = $v->pictures()->first();
-            
-            $url_gallery = $this->router->urlFor('galleryDetails', [['id', $v->gallery_id]]);
+            $url_gallery = $this->router->urlFor('userGalleryDetails', [['id', $v->gallery_id]]);
 
             $tags = "";
 

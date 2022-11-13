@@ -5,7 +5,7 @@ namespace iutnc\mediaphotoapp\view;
 use iutnc\mf\view\Renderer;
 use iutnc\mediaphotoapp\view\MediaphotoView;
 
-class GalleryView extends MediaphotoView implements Renderer
+class UserGalleryView extends MediaphotoView implements Renderer
 {
     public function render(): string
     {   
@@ -20,18 +20,15 @@ class GalleryView extends MediaphotoView implements Renderer
 
         $creator = $gallery->user()->first();
 
-        $updateGallery= $this->router->urlFor('updateGallery',[['id',$gallery->gallery_id]]);
-        $updateTags= $this->router->urlFor('updateTags',[['id',$gallery->gallery_id]]);
-        $addPicture = $this->router->urlFor('addPicture',[['id',$gallery->gallery_id]]);
-        $deleteGallery = $this->router->urlFor('deleteGallery',[['id',$gallery->gallery_id]]);
-        $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
+       
+        $url_creator = $this->router->urlFor('otherUser',[['id',$creator->user_id]]);
 
         $html .="<section><h2>$gallery->name</h2><a href = '$url_creator'>$creator->fullname</a><br>Nombre de photos : $picturesNumber<br>Description : $gallery->description<br>Créé le : $gallery->created_at<br>"; 
 
         foreach ($galleryTags as $v2) {
            $html .="$v2->name ";
         }
-        $html .="<div><a href=$updateGallery> Update </a><br><a href=$deleteGallery> Delete </a><br><a href=$addPicture> Ajouter une photo </a></div></section><article>";
+        $html .="</section><article>";
         foreach ($galleryPictures as $v) {
             $pictureTags = $v->pictureTags()->get();
                 $html .= "<div> <a href = '#'><img src ="."upload/".$v->file."></a><aside>";

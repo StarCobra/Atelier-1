@@ -15,7 +15,7 @@ class InscriptionView extends MediaphotoView implements Renderer
         $html = "<section>
 
                 <h3>Inscription</h3>
-                \n<form action='$signeUp' method = 'POST'>
+                \n<form action='$signeUp' method = 'POST' name >
                     \n<input type = 'text' name = 'firstname' placeholder = 'Prénom' required>
                     \n<input type = 'text' name = 'name' placeholder = 'Nom' required>
 

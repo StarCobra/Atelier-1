@@ -13,7 +13,7 @@ class mediaphotoAuthentification extends AbstractAuthentification
     public static function register(string $username,
                                  string $password,
                                  string $fullname,
-                                 $level=self::ACCESS_LEVEL_USER): void {
+                                 $level=self::ACCESS_LEVEL_AUTHENTIFICATE_USER): void {
  
  
          $user = User::where('username','=',$username)->first();  
