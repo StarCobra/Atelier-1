@@ -5,8 +5,7 @@ namespace iutnc\mediaphotoapp\control;
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Gallery;
 use iutnc\mediaphotoapp\view\CreateGalleryView;
-use iutnc\mediaphotoapp\model\Gallery;
-use iutnc\mf\router\Router;
+
 
 class CreateGalleryController extends \iutnc\mf\control\AbstractController
 {
@@ -18,7 +17,7 @@ class CreateGalleryController extends \iutnc\mf\control\AbstractController
             $instance->makePage();
         }
    else {
-            $requete = new \iutnc\mediaphotoapp\model\Gallery();
+            $requete = new Gallery();
             $requete->name = $_POST["name"];
             $requete->description = $_POST["description"];
             $requete->status = $_POST["confidentialite"];

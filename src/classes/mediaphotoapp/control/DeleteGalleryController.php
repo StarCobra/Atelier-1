@@ -14,8 +14,10 @@ class DeleteGalleryController extends AbstractController
     { 
         $galleryId = $_GET['id'];
         $id =  mediaphotoAuthentification::connectedUser();
-        
-         Gallery::where('gallery_id','=',$galleryId)->delete();
+        $gallery = Gallery::find($galleryId);
+        $gallery->galleryTags()->detach();
+        $gallery->pictures()->delete();
+         $gallery->delete();
      
             Router::executeRoute('list_galerie',['id',[$id]]);
          
