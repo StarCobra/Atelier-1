@@ -1,7 +1,9 @@
 <?php
+
 session_start();
 
-use iutnc\mediaphotoapp\model\Gallery;
+//error_reporting(0);
+//ini_set('display_errors', 0);
 
 require_once 'vendor/autoload.php';
 
