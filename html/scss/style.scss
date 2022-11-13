@@ -232,11 +232,11 @@ section {
     }
     & > ul{
         margin-bottom: 1em;
+        max-width: 480px;
         & + div{
             display: flex;
             @extend .s12;
-            @extend .m8;
-            @extend .l5;
+            @extend .l8;
             justify-content: space-around;
         }
     }
@@ -297,7 +297,8 @@ article {
         }
         aside {
             opacity: 1;
-            height: 5em;
+            min-height: 2em;
+            height: auto;
             transition: all 0.3s ease;
             padding-bottom: 8px;
         }

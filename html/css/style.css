@@ -148,7 +148,7 @@ main {
   .m7, section > form {
     width: 57.2916666667%;
   }
-  .m8, section > ul + div {
+  .m8 {
     width: 65.8333333333%;
   }
   .m9 {
@@ -177,7 +177,7 @@ main {
   .l4, section > form {
     width: 31.6666666667%;
   }
-  .l5, section > ul + div {
+  .l5 {
     width: 40.2083333333%;
   }
   .l6 {
@@ -186,7 +186,7 @@ main {
   .l7 {
     width: 57.2916666667%;
   }
-  .l8 {
+  .l8, section > ul + div {
     width: 65.8333333333%;
   }
   .l9 {
@@ -326,6 +326,7 @@ section > form input[type=submit] {
 }
 section > ul {
   margin-bottom: 1em;
+  max-width: 480px;
 }
 section > ul + div {
   display: flex;
@@ -380,7 +381,8 @@ article div:hover img {
 }
 article div:hover aside {
   opacity: 1;
-  height: 5em;
+  min-height: 2em;
+  height: auto;
   transition: all 0.3s ease;
   padding-bottom: 8px;
 }

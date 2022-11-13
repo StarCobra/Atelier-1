@@ -21,7 +21,7 @@ class UpdateGalleryView extends MediaphotoView implements Renderer
 
         $updateGallery = $this->router->urlFor('updateGallery', [['id', $gallery->gallery_id]]);
 
-        $html = "<div>
+        $html = "<section>
                 <h3>Créer une galerie</h3>
                 \n<form action = '$updateGallery' method = 'POST'>
                     \n<label for = 'name'>Nom de la galerie</label>
@@ -38,7 +38,7 @@ class UpdateGalleryView extends MediaphotoView implements Renderer
 
                     \n<input type = 'submit' value ='send' name = 'submit'>
                 \n</form>
-                \n</div>";
+                \n</section>";
 
         return $html;
     }
