@@ -25,7 +25,6 @@ class GalleryView extends MediaphotoView implements Renderer
         $updateGallery= $this->router->urlFor('updateGallery',[['id',$gallery->gallery_id]]);
         $updateTags= $this->router->urlFor('updateTags',[['id',$gallery->gallery_id]]);
         $addPicture = $this->router->urlFor('addPicture',[['id',$gallery->gallery_id]]);
-        $deleteGallery = $this->router->urlFor('deleteGallery',[['id',$gallery->gallery_id]]);
 
         $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
 
@@ -34,7 +33,7 @@ class GalleryView extends MediaphotoView implements Renderer
         foreach ($galleryTags as $v2) {
            $html .="$v2->name ";
         }
-        $html .="<div><button><a href=$updateGallery> Update </a></button><button><a href=$updateTags> Ajouter Tag </a></button><button><a href=$addPicture> Ajouter une photo </a></button><button><a href=$deleteGallery> Supprimer galerie </a></button></div></section><article>";
+        $html .="<div><button><a href=$updateGallery> Update </a></button><button><a href=$updateTags> Ajouter Tag </a></button><button><a href=$addPicture> Ajouter une photo </a></button><button><a href='#'> Supprimer galerie </a></button></div></section><article>";
         foreach ($galleryPictures as $v) {  
                 $pictureTags = $v->pictureTags()->get();          
                 $loadPicture = $this->router->urlFor('pictureDetails',[['id',$picture[$index]->picture_id]]);
