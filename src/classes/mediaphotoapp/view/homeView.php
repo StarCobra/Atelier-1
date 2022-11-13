@@ -19,15 +19,15 @@ class HomeView extends MediaphotoView implements Renderer
             $verifGallery = $v->pictures()->first();
 
             if (!is_null($verifGallery)) {
-          
-            $picturesNumber = count($galleryPictures);
-            if ($picturesNumber != 0) {
+              $picturesNumber = count($galleryPictures);
+              if ($picturesNumber != 0) {
                 $galleryLength = count($galleryPictures);
                 $randomNumber = rand(0, $galleryLength - 1);
                 $randomNumber1 = $randomNumber;
                 $randomPicture = $galleryPictures[$randomNumber1];
             }
             $creator = $v->user()->first();
+
 
             $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
             $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
@@ -59,3 +59,4 @@ class HomeView extends MediaphotoView implements Renderer
     return $html;
 }
 }
+

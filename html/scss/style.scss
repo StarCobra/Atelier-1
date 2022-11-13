@@ -1,14 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
-$nb_col: 12;
-$lg_gut: 2.7%;
-
-$nb_gut: $nb_col - 1;
-$lg_col: calc((100% - ($nb_gut * $lg_gut)) / $nb_col);
-
-@import 'grilleFor';
-
+/*------------------------------------*\
+                DEFINE
+\*------------------------------------*/
 
 $vert1: #005e3b;
 $white1: #fafafa;
@@ -83,19 +77,47 @@ button:hover, input[type=submit]:hover {
         color: $vert1;
     }
 }
+div, img, aside{
+    border-radius: 12px;
+}
+
+img{
+    width: 100%;
+}
+
+main{
+    min-height: calc(100vh - 122px);
+}
+
+$nb_col: 12;
+$lg_gut: 2.5%;
+
+$nb_gut: $nb_col - 1;
+$lg_col: calc((100% - ($nb_gut * $lg_gut)) / $nb_col);
+
+@import 'grilleFor';
+
+/*------------------------------------*\
+                HEADER
+\*------------------------------------*/
 
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em 1em;
+    padding: 0 1em;
     background-color: $white1;
     border-bottom: 1px solid grey;
+    & > a{
+        display: flex;
+    }
     img{
         width: 80px;
     }
     form{
-        width: calc(6 * 100% / 12);
+        @extend .s8;
+        display: flex;
+        padding-left: 12px;
         input{
             width: calc(100% - 60px);
             border-radius: 20px 0 0 20px;
@@ -106,7 +128,6 @@ header{
         }
         button{
             border-radius: 0 20px 20px 0;
-            transform: translate(-5px, 5px);
             svg{
                 fill: #fff;
             }
@@ -117,27 +138,76 @@ header{
             }
         }
     }
-}
-main{
-    min-height: calc(100vh - 140px);
-}
-footer{
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid grey;
-    padding: 12px 0;
-    a{
-        margin-left: 8px;
+    & > nav{
+        cursor: pointer;
+        div{
+            font-size: 36px;
+            color: $vert1;
+            font-weight: bolder;
+            padding: 12px;
+        }
+        ul{
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: 78px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            li{
+                display: none;
+                border: solid 1px grey;
+                border-top: none;
+                background-color: $white1;
+                button{
+                    border: none;
+                    background: none;
+                    width: 260px;
+                    & > a {
+                        color: black;
+                        font-weight: 600;
+                        font-size: 1.2em;
+                    }
+                }
+                button:hover{
+                    border: none;
+                    background: none;
+                    & > a {
+                        color: $vert1;
+                    }
+                }
+            }
+            li:nth-child(1){
+                border-top: 1px solid grey;
+            }
+        }
+        
+    }
+    & > nav:hover{
+        ul{
+            opacity: 1;
+            transition: all 0.3s ease;
+            li{
+                display: block;
+            }
+        }
     }
 }
 
-div, img, aside{
-    border-radius: 12px;
+/*------------------------------------*\
+                FOOTER
+\*------------------------------------*/
+
+footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid grey;
+    padding: 8px 1em;
 }
 
-img{
-    width: 100%;
-}
+/*------------------------------------*\
+            INFOS AND FORMS
+\*------------------------------------*/
 
 section {
     display: flex;
@@ -160,12 +230,27 @@ section {
             max-width: 240px;
         }
     }
+    & > ul{
+        margin-bottom: 1em;
+        max-width: 480px;
+        & + div{
+            display: flex;
+            @extend .s12;
+            @extend .l8;
+            justify-content: space-around;
+        }
+    }
 }
+
+/*------------------------------------*\
+            GALLERY AND PICS
+\*------------------------------------*/
+
 article {
     display: flex;
-    gap: 1.5em;
+    gap: 1.5em 2.5%;
     padding: 2em 1em;
-
+    flex-wrap: wrap;
     &>div {
         background: #f7f7f7;
         box-shadow: 12px 12px 24px #d2d2d2,
@@ -178,6 +263,7 @@ article {
 
         a{
             display: flex;
+            position: relative;
         }
         img{
             transition: all 0.3s ease;
@@ -211,7 +297,8 @@ article {
         }
         aside {
             opacity: 1;
-            height: 5em;
+            min-height: 2em;
+            height: auto;
             transition: all 0.3s ease;
             padding-bottom: 8px;
         }
