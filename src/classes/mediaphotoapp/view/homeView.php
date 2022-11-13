@@ -16,11 +16,11 @@ class HomeView extends MediaphotoView implements Renderer
         foreach ($publicGalleries as $v) {
 
             $galleryPictures = $v->pictures()->get();
-            if (!is_null($galleryPictures)) {
+            $verifGallery = $v->pictures()->first();
 
-
-            $picturesNumber = count($galleryPictures);
-            if ($picturesNumber != 0) {
+            if (!is_null($verifGallery)) {
+              $picturesNumber = count($galleryPictures);
+              if ($picturesNumber != 0) {
                 $galleryLength = count($galleryPictures);
                 $randomNumber = rand(0, $galleryLength - 1);
                 $randomNumber1 = $randomNumber;
