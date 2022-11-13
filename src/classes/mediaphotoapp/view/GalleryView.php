@@ -41,7 +41,8 @@ class GalleryView extends MediaphotoView implements Renderer
         foreach ($galleryPictures as $v) {  
                 $pictureTags = $v->pictureTags()->get();          
                 $loadPicture = $this->router->urlFor('pictureDetails',[['id',$picture[$index]->picture_id]]);
-                $updatePicture = $this->router->urlFor('updatePicture',[['id',$picture[$index]->picture_id]]);
+                $addTags = $this->router->urlFor('updatePicture',[['id',$picture[$index]->picture_id]]);
+                $deletePicTag = $this->router->urlFor('deletePictureTag',[['id',$picture[$index]->picture_id]]);
                 $deletePicture = $this->router->urlFor('deletePicture',[['id',$picture[$index]->picture_id]]);
                 
                 $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside>";
@@ -50,7 +51,7 @@ class GalleryView extends MediaphotoView implements Renderer
                 $html .= "$v1->name";
             }
 
-            $html .= "<a href='$updatePicture'><button>Modifier l'image</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></aside></div>";
+            $html .= "<a href='$addTags'><button>Ajouter un tag</button></a><a href='$deletePicTag'><button>Supprimer un tag</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></aside></div>";
         }
         $html .= "</article>";
         return $html;
