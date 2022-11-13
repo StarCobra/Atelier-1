@@ -1,118 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@media screen and (min-width: 0px) {
-  .s1 {
-    width: 5.8583333333%;
-  }
-  .s2 {
-    width: 14.4166666667%;
-  }
-  .s3 {
-    width: 22.975%;
-  }
-  .s4 {
-    width: 31.5333333333%;
-  }
-  .s5 {
-    width: 40.0916666667%;
-  }
-  .s6, article > div {
-    width: 48.65%;
-  }
-  .s7 {
-    width: 57.2083333333%;
-  }
-  .s8 {
-    width: 65.7666666667%;
-  }
-  .s9 {
-    width: 74.325%;
-  }
-  .s10, section > form {
-    width: 82.8833333333%;
-  }
-  .s11 {
-    width: 91.4416666667%;
-  }
-  .s12 {
-    width: 100%;
-  }
-}
-@media screen and (min-width: 600px) {
-  .m1 {
-    width: 5.8583333333%;
-  }
-  .m2 {
-    width: 14.4166666667%;
-  }
-  .m3 {
-    width: 22.975%;
-  }
-  .m4, article > div {
-    width: 31.5333333333%;
-  }
-  .m5 {
-    width: 40.0916666667%;
-  }
-  .m6 {
-    width: 48.65%;
-  }
-  .m7, section > form {
-    width: 57.2083333333%;
-  }
-  .m8 {
-    width: 65.7666666667%;
-  }
-  .m9 {
-    width: 74.325%;
-  }
-  .m10 {
-    width: 82.8833333333%;
-  }
-  .m11 {
-    width: 91.4416666667%;
-  }
-  .m12 {
-    width: 100%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .l1 {
-    width: 5.8583333333%;
-  }
-  .l2 {
-    width: 14.4166666667%;
-  }
-  .l3, article > div {
-    width: 22.975%;
-  }
-  .l4, section > form {
-    width: 31.5333333333%;
-  }
-  .l5 {
-    width: 40.0916666667%;
-  }
-  .l6 {
-    width: 48.65%;
-  }
-  .l7 {
-    width: 57.2083333333%;
-  }
-  .l8 {
-    width: 65.7666666667%;
-  }
-  .l9 {
-    width: 74.325%;
-  }
-  .l10 {
-    width: 82.8833333333%;
-  }
-  .l11 {
-    width: 91.4416666667%;
-  }
-  .l12 {
-    width: 100%;
-  }
-}
+/*------------------------------------*\
+                DEFINE
+\*------------------------------------*/
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -187,19 +76,152 @@ button:hover > a, input[type=submit]:hover > a {
   color: #005e3b;
 }
 
+div, img, aside {
+  border-radius: 12px;
+}
+
+img {
+  width: 100%;
+}
+
+main {
+  min-height: calc(100vh - 122px);
+}
+
+@media screen and (min-width: 0px) {
+  .s1 {
+    width: 6.0416666667%;
+  }
+  .s2 {
+    width: 14.5833333333%;
+  }
+  .s3 {
+    width: 23.125%;
+  }
+  .s4 {
+    width: 31.6666666667%;
+  }
+  .s5 {
+    width: 40.2083333333%;
+  }
+  .s6, article > div {
+    width: 48.75%;
+  }
+  .s7 {
+    width: 57.2916666667%;
+  }
+  .s8, header form {
+    width: 65.8333333333%;
+  }
+  .s9 {
+    width: 74.375%;
+  }
+  .s10, section > form {
+    width: 82.9166666667%;
+  }
+  .s11 {
+    width: 91.4583333333%;
+  }
+  .s12, section > ul + div {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .m1 {
+    width: 6.0416666667%;
+  }
+  .m2 {
+    width: 14.5833333333%;
+  }
+  .m3 {
+    width: 23.125%;
+  }
+  .m4, article > div {
+    width: 31.6666666667%;
+  }
+  .m5 {
+    width: 40.2083333333%;
+  }
+  .m6 {
+    width: 48.75%;
+  }
+  .m7, section > form {
+    width: 57.2916666667%;
+  }
+  .m8 {
+    width: 65.8333333333%;
+  }
+  .m9 {
+    width: 74.375%;
+  }
+  .m10 {
+    width: 82.9166666667%;
+  }
+  .m11 {
+    width: 91.4583333333%;
+  }
+  .m12 {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .l1 {
+    width: 6.0416666667%;
+  }
+  .l2 {
+    width: 14.5833333333%;
+  }
+  .l3, article > div {
+    width: 23.125%;
+  }
+  .l4, section > form {
+    width: 31.6666666667%;
+  }
+  .l5 {
+    width: 40.2083333333%;
+  }
+  .l6 {
+    width: 48.75%;
+  }
+  .l7 {
+    width: 57.2916666667%;
+  }
+  .l8, section > ul + div {
+    width: 65.8333333333%;
+  }
+  .l9 {
+    width: 74.375%;
+  }
+  .l10 {
+    width: 82.9166666667%;
+  }
+  .l11 {
+    width: 91.4583333333%;
+  }
+  .l12 {
+    width: 100%;
+  }
+}
+/*------------------------------------*\
+                HEADER
+\*------------------------------------*/
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5em 1em;
+  padding: 0 1em;
   background-color: #fafafa;
   border-bottom: 1px solid grey;
+}
+header > a {
+  display: flex;
 }
 header img {
   width: 80px;
 }
 header form {
-  width: 50%;
+  display: flex;
+  padding-left: 12px;
 }
 header form input {
   width: calc(100% - 60px);
@@ -211,7 +233,6 @@ header form input:focus {
 }
 header form button {
   border-radius: 0 20px 20px 0;
-  transform: translate(-5px, 5px);
 }
 header form button svg {
   fill: #fff;
@@ -219,29 +240,71 @@ header form button svg {
 header form button:hover svg {
   fill: #005e3b;
 }
-
-main {
-  min-height: calc(100vh - 140px);
+header > nav {
+  cursor: pointer;
+}
+header > nav div {
+  font-size: 36px;
+  color: #005e3b;
+  font-weight: bolder;
+  padding: 12px;
+}
+header > nav ul {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 78px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+header > nav ul li {
+  display: none;
+  border: solid 1px grey;
+  border-top: none;
+  background-color: #fafafa;
+}
+header > nav ul li button {
+  border: none;
+  background: none;
+  width: 260px;
+}
+header > nav ul li button > a {
+  color: black;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+header > nav ul li button:hover {
+  border: none;
+  background: none;
+}
+header > nav ul li button:hover > a {
+  color: #005e3b;
+}
+header > nav ul li:nth-child(1) {
+  border-top: 1px solid grey;
+}
+header > nav:hover ul {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+header > nav:hover ul li {
+  display: block;
 }
 
+/*------------------------------------*\
+                FOOTER
+\*------------------------------------*/
 footer {
   display: flex;
   justify-content: center;
+  text-align: center;
   border-top: 1px solid grey;
-  padding: 12px 0;
-}
-footer a {
-  margin-left: 8px;
+  padding: 8px 1em;
 }
 
-div, img, aside {
-  border-radius: 12px;
-}
-
-img {
-  width: 100%;
-}
-
+/*------------------------------------*\
+            INFOS AND FORMS
+\*------------------------------------*/
 section {
   display: flex;
   flex-direction: column;
@@ -261,11 +324,23 @@ section > form input[type=submit] {
   margin-top: 2em;
   max-width: 240px;
 }
+section > ul {
+  margin-bottom: 1em;
+  max-width: 480px;
+}
+section > ul + div {
+  display: flex;
+  justify-content: space-around;
+}
 
+/*------------------------------------*\
+            GALLERY AND PICS
+\*------------------------------------*/
 article {
   display: flex;
-  gap: 1.5em;
+  gap: 1.5em 2.5%;
   padding: 2em 1em;
+  flex-wrap: wrap;
 }
 article > div {
   background: #f7f7f7;
@@ -275,6 +350,7 @@ article > div {
 }
 article > div a {
   display: flex;
+  position: relative;
 }
 article > div img {
   transition: all 0.3s ease;
@@ -305,7 +381,8 @@ article div:hover img {
 }
 article div:hover aside {
   opacity: 1;
-  height: 5em;
+  min-height: 2em;
+  height: auto;
   transition: all 0.3s ease;
   padding-bottom: 8px;
 }
