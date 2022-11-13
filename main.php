@@ -31,7 +31,8 @@ $router->addRoute('deconnexion',       'view_deconnexion',      '\iutnc\mediapho
 $router->addRoute('inscription',       'view_inscription',      '\iutnc\mediaphotoapp\control\InscriptionController',         mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('updateGallery',     'update_gallery',        '\iutnc\mediaphotoapp\control\UpdateGalleryController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('addPicture',        'add_picture_to_gallery','\iutnc\mediaphotoapp\control\AddPictureToGalleryController', mediaphotoAuthentification::ACCESS_LEVEL_NONE);
-$router->addRoute('updateTags',        'update_tags',           '\iutnc\mediaphotoapp\control\UpdateTagsController',          mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('addTags',        'add_tags',           '\iutnc\mediaphotoapp\control\AddTagsController',          mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('deleteTags',        'delete_tags',           '\iutnc\mediaphotoapp\control\DeleteTagsController',          mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('authentificateHome','list_galerie',          '\iutnc\mediaphotoapp\control\PrivateGalleriesController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 

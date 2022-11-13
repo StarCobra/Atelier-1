@@ -5,13 +5,13 @@ namespace iutnc\mediaphotoapp\control;
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Gallery;
 use iutnc\mediaphotoapp\model\Tag;
+use iutnc\mediaphotoapp\view\AddTagsView;
 use iutnc\mf\control\AbstractController;
-use iutnc\mediaphotoapp\view\UpdateTagsView;
 
 
 
 
-class UpdateTagsController extends AbstractController
+class AddTagsController extends AbstractController
 {
    public function execute(): void
    {
@@ -30,7 +30,7 @@ class UpdateTagsController extends AbstractController
             }
             
             if($n = 1) {
-               $v = new UpdateTagsView($gallery);
+               $v = new AddTagsView($gallery);
                $v->makePage();
             } else {
                $req = new \iutnc\mediaphotoapp\model\Tag();
@@ -48,11 +48,11 @@ class UpdateTagsController extends AbstractController
             }
 
          } else {
-            $v = new UpdateTagsView($gallery);
+            $v = new AddTagsView($gallery);
             $v->makePage();
          }
       } else {
-         $v = new UpdateTagsView($gallery);
+         $v = new AddTagsView($gallery);
          $v->makePage();
       }
    }

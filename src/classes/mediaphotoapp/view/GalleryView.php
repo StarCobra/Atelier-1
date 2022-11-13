@@ -21,8 +21,9 @@ class GalleryView extends MediaphotoView implements Renderer
         $creator = $gallery->user()->first();
 
         $updateGallery= $this->router->urlFor('updateGallery',[['id',$gallery->gallery_id]]);
-        $updateTags= $this->router->urlFor('updateTags',[['id',$gallery->gallery_id]]);
+        $addTags= $this->router->urlFor('addTags',[['id',$gallery->gallery_id]]);
         $addPicture = $this->router->urlFor('addPicture',[['id',$gallery->gallery_id]]);
+        $deleteTags = $this->router->urlFor('deleteTags',[['id',$gallery->gallery_id]]);
 
         $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
 
@@ -31,7 +32,7 @@ class GalleryView extends MediaphotoView implements Renderer
         foreach ($galleryTags as $v2) {
            $html .="$v2->name ";
         }
-        $html .="<div><a href=$updateGallery> Update </a><br><a href=$addPicture> Ajouter une photo </a><br><a href=$updateTags>Ajouter un tag</a></div></section><article>";
+        $html .="<div><a href=$updateGallery> Update </a><br><a href=$addPicture> Ajouter une photo </a><br><a href=$addTags>Ajouter un tag</a><br><a href=$deleteTags>Supprimer un tag</a></div></section><article>";
         foreach ($galleryPictures as $v) {
             $pictureTags = $v->pictureTags()->get();
                 $html .= "<div> <a href = '#'><img src ="."upload/".$v->file."></a><aside>";

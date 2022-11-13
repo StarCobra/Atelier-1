@@ -4,7 +4,7 @@ namespace iutnc\mediaphotoapp\view;
 
 use iutnc\mf\view\Renderer;
 
-class UpdateTagsView extends MediaphotoView implements Renderer
+class AddTagsView extends MediaphotoView implements Renderer
 {
     public function render(): string
     {
@@ -19,11 +19,11 @@ class UpdateTagsView extends MediaphotoView implements Renderer
             if ($i < count($tag) - 1) $tags .= ", ";
         }
 
-        $updateTags = $this->router->urlFor('updateTags', [['id', $gallery->gallery_id]]);
+        $addTags = $this->router->urlFor('addTags', [['id', $gallery->gallery_id]]);
 
         $html = "<div>
                 \n<h3>Modifier #Tags</h3>
-                \n<form action = '$updateTags' method = 'POST'>
+                \n<form action = '$addTags' method = 'POST'>
                     \n<label for = 'tags'> Vos #Tags : " . $tags . "</label><br>
                     \n<label for = 'tag'>Nom du #Tag</label>
                     \n<input type = 'text' name = 'tag' placeholder = '#Tag' required>";
