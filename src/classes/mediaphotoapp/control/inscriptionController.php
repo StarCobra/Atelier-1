@@ -6,6 +6,7 @@ use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\user;
 use iutnc\mf\control\AbstractController;
 use iutnc\mediaphotoapp\view\InscriptionView;
+use iutnc\mf\exceptions\AuthentificationException;
 use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
 class InscriptionController extends AbstractController
@@ -18,7 +19,7 @@ class InscriptionController extends AbstractController
             $v->makePage();
         }
       else{
-        if(isset($_POST["submit"])){
+        
             $firstName = $_POST['firstname'];
             $name = $_POST['name'];
             $password = $_POST['password'];
@@ -29,14 +30,19 @@ class InscriptionController extends AbstractController
 
             $fullname = $firstName." ".$name;
 
-            if((!empty($firstName))&&(!empty($name))&&(!empty($username))&&(!empty($password)&&(!empty($mail)))){
+            if((!empty($firstName))&&(!empty($name))&&(!empty($username))&&(!empty($password)&&(!empty($check_password)&&(!empty($mail))))){
+                if ($check_password !== $password) {
+                   throw new AuthentificationException("invalid password !");
+                   
+                }
 
-            mediaphotoAuthentification::register($username,$password,$fullname,$level=mediaphotoAuthentification::ACCESS_LEVEL_USER);
-            Router::executeRoute('view_connexion');
+            mediaphotoAuthentification::register($username,$password,$fullname,$level = mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
+        Router::executeRoute('list_galeriePub');
+
         }else{
             Router::executeRoute('view_inscription');
         }
-            }
+            
         }
     }
     }

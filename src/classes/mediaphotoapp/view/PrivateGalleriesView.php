@@ -31,8 +31,7 @@ class PrivateGalleriesView extends MediaphotoView implements Renderer
         foreach ($allGalleries as $v) {
 
             $galleryPictures = $v->pictures()->get();
-            if (!is_null($galleryPictures) ) {
-
+            if ( sizeof($galleryPictures) !== 0 ) {
             $picturesNumber = count($galleryPictures);
             if ($picturesNumber != 0) {
                 $galleryLength = count($galleryPictures);
@@ -43,8 +42,8 @@ class PrivateGalleriesView extends MediaphotoView implements Renderer
             $creator = $v->user()->first();
 
             
-            $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
-            $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
+            $url_gallery = $this->router->urlFor('userGalleryDetails',[['id',$v->gallery_id]]);
+            $url_creator = $this->router->urlFor('otherUser',[['id',$creator->user_id]]);
             if ($picturesNumber != 0) {
                 $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><p>$v->name</p><p><a href = '$url_creator'>$creator->username</a></p><p>$picturesNumber</p></div>";
             } else {
