@@ -76,6 +76,10 @@ button:hover > a, input[type=submit]:hover > a {
   color: #005e3b;
 }
 
+a {
+  color: #005e3b;
+}
+
 div, img, aside {
   border-radius: 12px;
 }
@@ -301,7 +305,7 @@ footer {
   justify-content: center;
   text-align: center;
   border-top: 1px solid grey;
-  padding: 8px 1em;
+  padding: 8px 0;
 }
 
 /*------------------------------------*\
@@ -392,6 +396,42 @@ article div:hover aside {
   height: auto;
   transition: all 0.3s ease;
   padding-bottom: 8px;
+}
+
+figure {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  height: calc(100vh - 122px);
+}
+figure > div {
+  max-height: 90%;
+  width: 100%;
+  text-align: center;
+}
+figure > div img {
+  height: 100%;
+  object-fit: contain;
+}
+figure > div nav {
+  position: absolute;
+  top: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+  z-index: 3;
+}
+figure > div nav button {
+  border: 2px solid white;
+}
+figure > div nav button:hover {
+  border: 2px solid #005e3b;
+}
+figure aside {
+  margin-top: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */
