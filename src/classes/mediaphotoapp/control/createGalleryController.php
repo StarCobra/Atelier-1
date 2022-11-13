@@ -5,8 +5,6 @@ namespace iutnc\mediaphotoapp\control;
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Gallery;
 use iutnc\mediaphotoapp\view\CreateGalleryView;
-use iutnc\mediaphotoapp\model\Gallery;
-use iutnc\mf\router\Router;
 
 class CreateGalleryController extends \iutnc\mf\control\AbstractController
 {

@@ -1,5 +1,4 @@
 <?php
-
 namespace iutnc\mediaphotoapp\view;
 
 use iutnc\mf\view\Renderer;
@@ -10,9 +9,7 @@ class AddTagsView extends MediaphotoView implements Renderer
     {
         $gallery = $this->data;
         $html = "";
-
         $tags = "";
-
         $tag = $gallery->galleryTags()->get();
         for ($i = 0; $i < count($tag); $i++) {
             $tags .= $tag[$i]->name;

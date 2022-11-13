@@ -27,6 +27,8 @@ class GalleryView extends MediaphotoView implements Renderer
         $deleteGallery = $this->router->urlFor('deleteGallery',[['id',$gallery->gallery_id]]);
         $url_creator = $this->router->urlFor('user',[['id',$creator->user_id]]);
 
+        $addTags = $this->router->urlFor('addTags',[['id',$gallery->gallery_id]]);
+
         $html .="<section><h2>$gallery->name</h2><ul><li><a href = '$url_creator'>$creator->fullname</a></li><li>Nombre de photos : $picturesNumber</li><li>Description : $gallery->description</li><li>Créé le : $gallery->created_at</li><li>"; 
 
         foreach ($galleryTags as $v2) {
@@ -34,7 +36,7 @@ class GalleryView extends MediaphotoView implements Renderer
         }
 
 
-        $html .="</li></ul><div><a href=$updateGallery><button>Mettre à jour la galerie</button></a><a href=$deleteGallery><button> Supprimer la Gallerie </a></button><a href=$updateTags><button> Ajouter un Tag </a></button><br><a href=$addPicture><button>Ajouter une photo</a></button></div></section><article>";
+        $html .="</li></ul><div><a href=$updateGallery><button>Mettre à jour la galerie</button></a><a href=$deleteGallery><button> Supprimer la Gallerie </button></a><a href=$addTags><button> Ajouter un Tag </button></a><br><a href=$addPicture><button>Ajouter une photo</button></a></div></section><article>";
         foreach ($galleryPictures as $v) {  
                 $pictureTags = $v->pictureTags()->get();          
                 $loadPicture = $this->router->urlFor('pictureDetails',[['id',$picture[$index]->picture_id]]);
@@ -47,7 +49,7 @@ class GalleryView extends MediaphotoView implements Renderer
                 $html .= "$v1->name";
             }
 
-            $html .= "<button><a href='$updatePicture'>Modifier l'image</a></button><button><a href='$deletePicture'> Supprimer l'image </a></button></aside></div>";
+            $html .= "<a href='$updatePicture'><button>Modifier l'image</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></aside></div>";
         }
         $html .= "</article>";
         return $html;
