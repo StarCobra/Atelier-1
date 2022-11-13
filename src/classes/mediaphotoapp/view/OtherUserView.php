@@ -11,8 +11,8 @@ class OtherUserView extends MediaphotoView implements Renderer
         $user = $this->data[0];
 
         $url_createGallery = (new \iutnc\mf\router\Router())->urlFor('createGallery', [['id', $user->user_id]]);
-        $infoProfil = "<h3>le profil de $user->fullname </h3>\n<p> Pseudo :" . $user->username . "</p>\n<h3>Ses galeries</h3>";
-        $finalView = "";
+        $infoProfil = "<section><h2>Le profil de $user->fullname </h2>\n<p>Pseudo : @" . $user->username . "</p>\n<h3>Ses galeries</h3>";
+        $finalView = "<article>";
 
 
         $galleries = $this->data[1];
@@ -30,16 +30,16 @@ class OtherUserView extends MediaphotoView implements Renderer
                 $image = "<div>\n<a href = $url_gallery>\n<img src = upload/" . $picture->file . ">\n</a>\n";
             }
 
-            $description = $v->name . " " . $user->username . " ";
+            $description = "<aside><h3>" . $v->name . "</h3><p>" . $user->username . "<br>";
 
             for ($i = 0; $i < count($tag); $i++) {
                 $tags .= $tag[$i]->name . " ";
             }
-            $description .= $tags . "</div>";
+            $description .= $tags . "</p></aside></div>";
 
             $finalView .= $image . $description;
         }
 
-        return $infoProfil . $finalView;
+        return $infoProfil . $finalView   . "</article>";
     }
 }
