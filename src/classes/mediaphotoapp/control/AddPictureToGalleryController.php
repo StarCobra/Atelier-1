@@ -50,7 +50,7 @@ use iutnc\mediaphotoapp\view\AddPictureToGalleryView;
                     $req->gallery_id=$galleryId;
                     $req->save();
 
-                    Router::executeRoute('list_galeriePub');
+                    Router::executeRoute('view_gallery',["id",$gallery->gallery_id]);    
                 }
                 else{
                     echo "Une erreur est survenue";

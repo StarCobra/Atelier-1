@@ -31,7 +31,8 @@ use iutnc\mediaphotoapp\view\UpdateGalleryView;
         $gallery->description = $description;
         $gallery->status =$status;
         $gallery->save();
-        Router::executeRoute('list_galeriePub');
+
+        Router::executeRoute('view_gallery',['id',$gallery->gallery_id]);
       }
    }
 }
