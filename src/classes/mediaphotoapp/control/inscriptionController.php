@@ -38,6 +38,7 @@ class InscriptionController extends AbstractController
 
             mediaphotoAuthentification::register($username,$password,$fullname,$level = mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
         Router::executeRoute('list_galeriePub');
+
         }else{
             Router::executeRoute('view_inscription');
         }

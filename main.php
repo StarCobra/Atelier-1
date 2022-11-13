@@ -22,6 +22,7 @@ $router = new \iutnc\mf\router\Router();
 
 
 
+
 $router->addRoute('user',              'view_userProfil',       '\iutnc\mediaphotoapp\control\userController',                mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
 $router->addRoute('createGallery',     'view_create',           '\iutnc\mediaphotoapp\control\createGalleryController',       mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
 $router->addRoute('home',              'list_galeriePub',       '\iutnc\mediaphotoapp\control\HomeController',                mediaphotoAuthentification::ACCESS_LEVEL_NONE);
@@ -36,6 +37,9 @@ $router->addRoute('authentificateHome','list_galerie',          '\iutnc\mediapho
 $router->addRoute('otherUser',              'view_otherUserProfil',       '\iutnc\mediaphotoapp\control\OtherUserController',                mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('userGalleryDetails',              'view_user_gallery',       '\iutnc\mediaphotoapp\control\UserGalleryController',                mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('deleteGallery',              'delete_gallery',       '\iutnc\mediaphotoapp\control\DeleteGalleryController',                mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
+$router->addRoute('pictureDetails',     'view_picture',           '\iutnc\mediaphotoapp\control\PictureController',             mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('updatePicture',      'update_picture',         '\iutnc\mediaphotoapp\control\UpdatePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('deletePicture',      'delete_picture',         '\iutnc\mediaphotoapp\control\DeletePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 
 
