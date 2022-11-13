@@ -272,7 +272,7 @@ header > nav ul li > a button {
   width: 260px;
   color: black;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 header > nav ul li > a:hover {
   color: #005e3b;
@@ -333,6 +333,7 @@ section > ul {
 section > ul + div {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 /*------------------------------------*\
@@ -353,6 +354,7 @@ article > div {
 article > div a {
   display: flex;
   position: relative;
+  text-decoration: none;
 }
 article > div img {
   transition: all 0.3s ease;
@@ -377,6 +379,9 @@ article > div aside h3 {
 article > div aside > p:nth-child(2) {
   display: flex;
   justify-content: space-between;
+}
+article > div aside button {
+  margin-top: 1em;
 }
 article div:hover img {
   border-radius: 12px 12px 0 0;

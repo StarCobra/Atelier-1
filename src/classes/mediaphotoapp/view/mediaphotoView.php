@@ -68,7 +68,6 @@ class MediaphotoView extends AbstractView
 
     \n<footer>
         \n&copy; Licence Pro CIASIE 2022 | Tous droits réservés.
-        \n<a href = '#'>A propos</a>
     \n</footer>";
     }}
 }

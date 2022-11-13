@@ -166,7 +166,7 @@ header{
                         width: 260px;
                         color: black;
                         font-weight: 600;
-                        font-size: 1.2em;
+                        font-size: 1em;
                     }
                 }
                 & > a:hover {
@@ -241,6 +241,7 @@ section {
             @extend .s12;
             @extend .l8;
             justify-content: space-around;
+            flex-wrap: wrap;
         }
     }
 }
@@ -267,6 +268,7 @@ article {
         a{
             display: flex;
             position: relative;
+            text-decoration: none;
         }
         img{
             transition: all 0.3s ease;
@@ -290,6 +292,9 @@ article {
             & > p:nth-child(2){
                 display: flex;
                 justify-content: space-between;
+            }
+            button{
+                margin-top: 1em;
             }
         }
     }
