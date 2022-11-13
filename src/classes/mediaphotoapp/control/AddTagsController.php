@@ -22,10 +22,10 @@ class AddTagsController extends AbstractController
             for ($i = 0; $i < count($tag); $i++) {
                if ($tag[$i]->name == $_POST["tag"]) {
                   $n = 1;
-               }  
+               } 
             }
             
-            if($n = 1) {
+            if($n == 1) {
                $v = new AddTagsView($gallery);
                $v->makePage();
             } else {
