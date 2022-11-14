@@ -368,7 +368,6 @@ section div {
             GALLERY AND PICS
 \*------------------------------------*/
 article {
-  display: column;
   columns: 2;
   padding: 2em 1em;
 }
