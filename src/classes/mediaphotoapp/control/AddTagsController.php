@@ -1,6 +1,7 @@
 <?php
 
 namespace iutnc\mediaphotoapp\control;
+
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Gallery;
 use iutnc\mediaphotoapp\model\Tag;
@@ -22,10 +23,10 @@ class AddTagsController extends AbstractController
             for ($i = 0; $i < count($tag); $i++) {
                if ($tag[$i]->name == $_POST["tag"]) {
                   $n = 1;
-               } 
+               }
             }
-            
-            if($n == 1) {
+
+            if ($n == 1) {
                $v = new AddTagsView($gallery);
                $v->makePage();
             } else {
@@ -42,7 +43,6 @@ class AddTagsController extends AbstractController
 
                Router::executeRoute('view_gallery', ["gallery_id", $gallery->gallery_id]);
             }
-
          } else {
             $v = new AddTagsView($gallery);
             $v->makePage();
