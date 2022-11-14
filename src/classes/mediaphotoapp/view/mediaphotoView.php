@@ -15,6 +15,8 @@ class MediaphotoView extends AbstractView
         $url_inscription = $this->router->urlFor('inscription');
         $url_creator = $this->router->urlFor('user', [['id', $id]]);
         $url_search = $this->router->urlFor('searchTag');
+        $url_deleteAccount = $this->router->urlFor('DeleteAccount', [['id', $id]]);
+
         if ($id === null) {
 
             return "\n<header>
@@ -58,6 +60,7 @@ class MediaphotoView extends AbstractView
           \n<ul>
           \n<li><a href = '$url_deconnexion'><button>Déconnexion</button></a></li>
           \n<li><a href = '$url_creator'><button>Profil</button></a></li>
+          \n<li><a href = '$url_deleteAccount'><button>Supprimer Compte</button></a></li>
           \n<li><a href = '#'><button>A propos</button></a></li>
           \n</ul>
         \n</nav>

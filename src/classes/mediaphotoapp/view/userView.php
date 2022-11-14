@@ -15,10 +15,25 @@ class UserView extends MediaphotoView implements Renderer
         $finalView = "<article>";
         $galleries = $this->data[1];
 
+        $privateGalleriesCanVisit = $this->data[2];
+        $allGalleries = [];
+
         foreach ($galleries as $v) {
+            array_push($allGalleries, $v);
+        }
+        foreach ($privateGalleriesCanVisit as $v) {
+            array_push($allGalleries, $v);
+        }
+
+        foreach ($allGalleries as $v) {
             $tag = $v->galleryTags()->get();
             $picture = $v->pictures()->first();
+
+            $creator = $v->user()->first();
+
             $url_gallery = $this->router->urlFor('galleryDetails', [['id', $v->gallery_id]]);
+
+
             $tags = "";
 
             if (is_null($picture)) {
@@ -27,7 +42,7 @@ class UserView extends MediaphotoView implements Renderer
                 $image = "<div>\n<a href = $url_gallery>\n<img src = upload/" . $picture->file . ">\n</a>\n";
             }
 
-            $description = "<aside><h3>" . $v->name . "</h3><p>" . $user->username . "</p><figcaption>";
+            $description = "<aside><h3>" . $v->name . "</h3><p>" . $creator->username . "</p><figcaption>";
 
             for ($i = 0; $i < count($tag); $i++) {
                 $tags .= "<span>" . $tag[$i]->name . "</span>";
