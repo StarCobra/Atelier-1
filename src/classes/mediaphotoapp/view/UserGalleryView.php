@@ -21,26 +21,26 @@ class UserGalleryView extends MediaphotoView implements Renderer
         $creator = $gallery->user()->first();
         $url_creator = $this->router->urlFor('otherUser', [['id', $creator->user_id]]);
 
-        $html .= "<section><h2>$gallery->name</h2><a href = '$url_creator'>$creator->fullname</a><br>Nombre de photos : $picturesNumber<br>Description : $gallery->description<br>Créé le : $gallery->created_at<br>";
+        $html .= "<section><h2>$gallery->name</h2><ul><li><a href = '$url_creator'>$creator->fullname</a></li><li>Nombre de photos : $picturesNumber</li><li>Description : $gallery->description</li><li>Créé le : $gallery->created_at</li></ul><figcaption>";
 
         foreach ($galleryTags as $v2) {
-            $html .= "$v2->name ";
+            $html .= "<span>$v2->name</span>";
         }
-        $html .= "</section><article>";
+        $html .= "</figcaption></section><article>";
         foreach ($galleryPictures as $v) {
             $pictureTags = $v->pictureTags()->get();
 
             $loadPicture = $this->router->urlFor('pictureDetails', [['id', $picture[$index]->picture_id]]);
             $index++;
 
-            $html .= "<div> <a href = $loadPicture><img src =" . "upload/" . $v->file . "></a><aside>";
+            $html .= "<div> <a href = $loadPicture><img src =" . "upload/" . $v->file . "></a><aside><figcaption>";
             foreach ($pictureTags as $v1) {
-                $html .= "$v1->name ";
+                $html .= "<span>$v1->name</span>";
             }
-            $html .= "</aside></div>";
+            $html .= "</figcaption></aside></div>";
         }
         $html .= "</article>";
-        
+
         return $html;
     }
 }
