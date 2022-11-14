@@ -81,11 +81,13 @@ button:hover, input[type=submit]:hover {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
+    gap: 4px 8px;
     span {
         border-radius: 12px;
         border: 1px solid grey;
-        margin: 8px 8px 8px 0;
         padding: 4px;
+        margin-top: 4px;
+        margin-bottom: 4px;
     }
 }
 a{

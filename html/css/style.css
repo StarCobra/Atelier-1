@@ -347,12 +347,14 @@ section figcaption {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
+  gap: 4px 8px;
 }
 section figcaption span {
   border-radius: 12px;
   border: 1px solid grey;
-  margin: 8px 8px 8px 0;
   padding: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 section div {
   display: flex;
@@ -423,12 +425,14 @@ article > div aside > figcaption {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
+  gap: 4px 8px;
 }
 article > div aside > figcaption span {
   border-radius: 12px;
   border: 1px solid grey;
-  margin: 8px 8px 8px 0;
   padding: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 article > div aside nav {
   display: flex;
@@ -494,12 +498,14 @@ figure figcaption {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
+  gap: 4px 8px;
 }
 figure figcaption span {
   border-radius: 12px;
   border: 1px solid grey;
-  margin: 8px 8px 8px 0;
   padding: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 /*# sourceMappingURL=style.css.map */
