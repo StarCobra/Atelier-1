@@ -8,9 +8,9 @@ use iutnc\mediaphotoapp\view\MediaphotoView;
 class InscriptionView extends MediaphotoView implements Renderer
 {
     public function render(): string
-    {   
+    {
 
-        $signeUp= $this->router->urlFor('inscription');
+        $signeUp = $this->router->urlFor('inscription');
 
         $html = "<section>
 
