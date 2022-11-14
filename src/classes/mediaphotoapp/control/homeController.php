@@ -11,7 +11,8 @@ class HomeController extends AbstractController
    public function execute(): void
    {
       $publicGalleries = Gallery::where('status', '=', '0')->get();
-      
+
+      \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Accueil");
       $v = new HomeView($publicGalleries);
       $v->makePage();
    }

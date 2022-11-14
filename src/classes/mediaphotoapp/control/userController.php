@@ -8,6 +8,7 @@ class UserController extends \iutnc\mf\control\AbstractController
 {
     public function execute(): void
     {
+        \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : ");
         if (isset($_GET["id"])) {
 
             $id = $_GET["id"];
@@ -17,7 +18,7 @@ class UserController extends \iutnc\mf\control\AbstractController
             $data = [$user, $galleries];
 
             $instance = new UserView($data);
-            \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Utilisateur");
+            \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Profil");
             $instance->makePage();
         }
     }

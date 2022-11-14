@@ -17,7 +17,7 @@ class OtherUserController extends \iutnc\mf\control\AbstractController
             $data = [$user, $galleries];
 
             $instance = new OtherUserView($data);
-            AbstractView::setAppTitle("Media Photo : Utilisateur");
+            AbstractView::setAppTitle("Media Photo : Profil");
             $instance->makePage();
         }
     }

@@ -12,6 +12,7 @@ class InscriptionController extends AbstractController
 {
     public function execute(): void
     {
+        \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Inscription");
         if ($this->request->method === "GET") {
             $v = new InscriptionView();
             $v->makePage();
@@ -22,6 +23,8 @@ class InscriptionController extends AbstractController
             $mail  = $_POST['mail'];
             $username  = $_POST['pseudo'];
 
+            var_dump($_POST);
+
             $check_password = $_POST['check_password'];
             $fullname = $firstName . " " . $name;
 
@@ -29,7 +32,7 @@ class InscriptionController extends AbstractController
                 if ($check_password !== $password) {
                     throw new AuthentificationException("invalid password !");
                 }
-                mediaphotoAuthentification::register($username, $password, $fullname, $level = mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
+                mediaphotoAuthentification::register($username, $password, $fullname, $mail, $level = mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
                 Router::executeRoute('list_galeriePub');
             } else {
                 Router::executeRoute('view_inscription');

@@ -12,6 +12,7 @@ class AddPictureToGalleryController extends AbstractController
 {
     public function execute(): void
     {
+        \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Ajout Image");
         if ($this->request->method === "GET") {
             $v = new AddPictureToGalleryView();
             $v->makePage();
