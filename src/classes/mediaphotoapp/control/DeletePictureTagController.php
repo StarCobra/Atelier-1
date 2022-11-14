@@ -28,10 +28,14 @@ class DeletePictureTagController extends AbstractController
             }
             
             if($n == 1) {
+               $pictureTags = $picture->pictureTags()->get();
                $name =  \iutnc\mediaphotoapp\model\Tag::where('name', '=', $_POST['tag'])->first();
-               $id = \iutnc\mediaphotoapp\model\Tag::select('tag_id')->where('name', '=', $_POST['tag'])->first();
-               $req1 =  \iutnc\mediaphotoapp\model\PictureTag::where('tag_id', '=', $id->tag_id)->delete();   
-               $req = \iutnc\mediaphotoapp\model\Tag::where('name', '=', $name->name)->delete();   
+               foreach ($pictureTags as $v) {
+                  if($v->name === $name->name){
+                     $v->pictureTags()->detach();
+                     $v->delete();
+                  }
+               } 
                
                $id = mediaphotoAuthentification::connectedUser();
 

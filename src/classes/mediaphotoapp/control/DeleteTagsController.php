@@ -27,15 +27,18 @@ class DeleteTagsController extends AbstractController
             }
             
             if($n == 1) {
+               $galleryTags = $gallery->galleryTags()->get();
                $name =  \iutnc\mediaphotoapp\model\Tag::where('name', '=', $_POST['tag'])->first();
-               $id = \iutnc\mediaphotoapp\model\Tag::select('tag_id')->where('name', '=', $_POST['tag'])->first();
-               $req1 =  \iutnc\mediaphotoapp\model\GalleryTag::where('tag_id', '=', $id->tag_id)->delete();   
-               $req = \iutnc\mediaphotoapp\model\Tag::where('name', '=', $name->name)->delete();   
-
+               foreach ($galleryTags as $v) {
+                  if($v->name === $name->name){
+                     $v->galleryTags()->detach();
+                     $v->delete();
+                  }
+               } 
                Router::executeRoute('view_gallery', ["gallery_id", $gallery->gallery_id]);
             } else {
-               $v = new DeleteTagsView($gallery);
-               $v->makePage();
+                  $v = new DeleteTagsView($gallery);
+                  $v->makePage();
             }
 
          } else {
