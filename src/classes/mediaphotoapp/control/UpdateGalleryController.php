@@ -23,7 +23,6 @@ class UpdateGalleryController extends AbstractController
             $description = $_POST['description'];
             $status = $_POST['confidentialite'];
 
-
             $gallery->name = $name;
             $gallery->description = $description;
             $gallery->status = $status;
