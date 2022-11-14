@@ -26,9 +26,9 @@ class PrivateGalleriesView extends MediaphotoView implements Renderer
           
 
         $html = "";
-
-
-        foreach ($allGalleries as $v) {
+            // echo("$allGalleries");
+$filtredAllGalleries = array_unique($allGalleries);
+        foreach ($filtredAllGalleries as $v) {
 
             $galleryPictures = $v->pictures()->get();
 
