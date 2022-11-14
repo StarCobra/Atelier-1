@@ -53,7 +53,7 @@ input:focus {
 
 button, input[type=submit] {
   min-width: 40px;
-  height: 40px;
+  min-height: 40px;
   color: #fff;
   padding: 5px 10px;
   cursor: pointer;
@@ -73,6 +73,10 @@ button:hover, input[type=submit]:hover {
   color: #005e3b;
 }
 button:hover > a, input[type=submit]:hover > a {
+  color: #005e3b;
+}
+
+a {
   color: #005e3b;
 }
 
@@ -104,7 +108,7 @@ main {
   .s5 {
     width: 40.2083333333%;
   }
-  .s6, article > div {
+  .s6 {
     width: 48.75%;
   }
   .s7 {
@@ -122,7 +126,7 @@ main {
   .s11 {
     width: 91.4583333333%;
   }
-  .s12, section > ul + div {
+  .s12, article > div, section > ul + div {
     width: 100%;
   }
 }
@@ -136,7 +140,7 @@ main {
   .m3 {
     width: 23.125%;
   }
-  .m4, article > div {
+  .m4 {
     width: 31.6666666667%;
   }
   .m5 {
@@ -171,7 +175,7 @@ main {
   .l2 {
     width: 14.5833333333%;
   }
-  .l3, article > div {
+  .l3 {
     width: 23.125%;
   }
   .l4, section > form {
@@ -233,6 +237,7 @@ header form input:focus {
 }
 header form button {
   border-radius: 0 20px 20px 0;
+  height: 40px;
 }
 header form button svg {
   fill: #fff;
@@ -272,7 +277,7 @@ header > nav ul li > a button {
   width: 260px;
   color: black;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 header > nav ul li > a:hover {
   color: #005e3b;
@@ -301,7 +306,7 @@ footer {
   justify-content: center;
   text-align: center;
   border-top: 1px solid grey;
-  padding: 8px 1em;
+  padding: 8px 0;
 }
 
 /*------------------------------------*\
@@ -333,39 +338,42 @@ section > ul {
 section > ul + div {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 /*------------------------------------*\
             GALLERY AND PICS
 \*------------------------------------*/
 article {
+  /*
   display: flex;
   gap: 1.5em 2.5%;
-  padding: 2em 1em;
   flex-wrap: wrap;
+  */
+  display: column;
+  columns: 2;
+  padding: 2em 1em;
 }
 article > div {
   background: #f7f7f7;
   box-shadow: 12px 12px 24px #d2d2d2, -12px -12px 24px #ffffff;
   height: calc(100% - 8px);
+  border: solid 1px #cfcfcf;
   min-height: 6em;
+  margin-bottom: 1em;
+  break-inside: avoid;
 }
 article > div a {
   display: flex;
   position: relative;
-}
-article > div img {
-  transition: all 0.3s ease;
+  text-decoration: none;
 }
 article > div aside {
   display: flex;
   flex-direction: column;
-  opacity: 0;
   padding: 0 1em;
   width: 100%;
-  height: 0;
   position: relative;
-  transition: all 0.3s ease;
   padding-bottom: 0;
 }
 article > div aside p, article > div aside h3 {
@@ -378,15 +386,59 @@ article > div aside > p:nth-child(2) {
   display: flex;
   justify-content: space-between;
 }
-article div:hover img {
-  border-radius: 12px 12px 0 0;
+article > div aside nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1em;
 }
-article div:hover aside {
-  opacity: 1;
-  min-height: 2em;
-  height: auto;
-  transition: all 0.3s ease;
-  padding-bottom: 8px;
+article > div aside nav a {
+  margin: 0 1em 1em 0;
+}
+
+@media screen and (min-width: 600px) {
+  article {
+    columns: 3;
+  }
+}
+@media screen and (min-width: 992px) {
+  article {
+    columns: 4;
+  }
+}
+figure {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  height: calc(100vh - 122px);
+}
+figure > div {
+  max-height: 90%;
+  width: 100%;
+  text-align: center;
+}
+figure > div img {
+  height: 100%;
+  object-fit: contain;
+}
+figure > div nav {
+  position: absolute;
+  top: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+  z-index: 3;
+}
+figure > div nav button {
+  border: 2px solid white;
+}
+figure > div nav button:hover {
+  border: 2px solid #005e3b;
+}
+figure aside {
+  margin-top: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */

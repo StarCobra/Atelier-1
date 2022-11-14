@@ -25,10 +25,15 @@ class PrivateGalleriesView extends MediaphotoView implements Renderer
             }
           
 
-        $html = "";
-            // echo("$allGalleries");
+
+         
+
+            $html = "<article>";
+
+
 $filtredAllGalleries = array_unique($allGalleries);
         foreach ($filtredAllGalleries as $v) {
+
 
             $galleryPictures = $v->pictures()->get();
 
@@ -47,12 +52,12 @@ $filtredAllGalleries = array_unique($allGalleries);
             $url_creator = $this->router->urlFor('otherUser',[['id',$creator->user_id]]);
 
             if ($picturesNumber != 0) {
-                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><p>$v->name</p><p><a href = '$url_creator'>$creator->username</a></p><p>$picturesNumber</p></div>";
+                $html .= "<div><a href = $url_gallery><img src=" . "upload/" . $randomPicture->file . "></a><aside><h3>$v->name</h3><p><a href = '$url_creator'>$creator->username</a><span>$picturesNumber photos</span></p></aside></div>";
             } else {
-                $html .= "<div><p><a href = $url_gallery>$v->name</a></p><p>$creator->fullname</p><p>$picturesNumber</p></div>";
+                $html .= "<div><h3><a href = $url_gallery>$v->name</a></h3><p>$creator->fullname<span>$picturesNumber photos</span></p></div>";
             }}
         }
-
+        $html .= "</article>";
         return $html;
     }
 }

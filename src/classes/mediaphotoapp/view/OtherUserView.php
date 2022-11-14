@@ -11,7 +11,7 @@ class OtherUserView extends MediaphotoView implements Renderer
         $user = $this->data[0];
 
         $url_createGallery = (new \iutnc\mf\router\Router())->urlFor('createGallery', [['id', $user->user_id]]);
-        $infoProfil = "<section><h2>Le profil de $user->fullname </h2>\n<p>Pseudo : @" . $user->username . "</p>\n<h3>Ses galeries</h3>";
+        $infoProfil = "<section><h2>Le profil de $user->fullname </h2>\n<p>Pseudo : @" . $user->username . "</p>\n<h3>Ses galeries</h3></section>";
         $finalView = "<article>";
 
 

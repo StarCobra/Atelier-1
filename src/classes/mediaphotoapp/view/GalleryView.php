@@ -37,7 +37,8 @@ class GalleryView extends MediaphotoView implements Renderer
         }
 
 
-        $html .="</li></ul><div><a href=$updateGallery><button>Mettre à jour la galerie</button></a><a href=$deleteGallery><button> Supprimer la Gallerie </button></a><a href=$addTags><button> Ajouter un Tag </button></a><br><a href=$deleteTags><button> Supprimer un Tag </button></a><br><a href=$addPicture><button>Ajouter une photo</button></a></div></section><article>";
+        $html .="</li></ul><div><a href=$updateGallery><button>Mettre à jour la galerie</button></a><a href=$deleteGallery><button> Supprimer la Gallerie </button></a><a href=$addTags><button> Ajouter un Tag </button></a><a href=$addPicture><button>Ajouter une photo</button></a></div></section><article>";
+
         foreach ($galleryPictures as $v) {  
                 $pictureTags = $v->pictureTags()->get();          
                 $loadPicture = $this->router->urlFor('pictureDetails',[['id',$picture[$index]->picture_id]]);
@@ -45,13 +46,15 @@ class GalleryView extends MediaphotoView implements Renderer
                 $deletePicTag = $this->router->urlFor('deletePictureTag',[['id',$picture[$index]->picture_id]]);
                 $deletePicture = $this->router->urlFor('deletePicture',[['id',$picture[$index]->picture_id]]);
                 
-                $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside>";
+                $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside><nav>";
                 $index++;
             foreach ($pictureTags as $v1) {
                 $html .= "$v1->name";
             }
 
-            $html .= "<a href='$addTags'><button>Ajouter un tag</button></a><a href='$deletePicTag'><button>Supprimer un tag</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></aside></div>";
+
+            $html .= "<a href='$addTags'><button>Ajouter un tag</button></a><a href='$deletePicTag'><button>Supprimer un tag</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></nav></aside></div>";
+
         }
         $html .= "</article>";
         return $html;
