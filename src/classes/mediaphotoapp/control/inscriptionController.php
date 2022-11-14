@@ -23,8 +23,6 @@ class InscriptionController extends AbstractController
             $mail  = $_POST['mail'];
             $username  = $_POST['pseudo'];
 
-            var_dump($_POST);
-
             $check_password = $_POST['check_password'];
             $fullname = $firstName . " " . $name;
 
