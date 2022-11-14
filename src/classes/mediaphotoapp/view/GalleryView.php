@@ -36,24 +36,21 @@ class GalleryView extends MediaphotoView implements Renderer
             $html .= "$v2->name ";
         }
 
-
         $html .= "</li></ul><div><a href=$updateGallery><button>Mettre à jour la galerie</button></a><a href=$deleteGallery><button> Supprimer la Gallerie </button></a><a href=$addTags><button> Ajouter un Tag </button></a><a href=$addPicture><button>Ajouter une photo</button></a></div></section><article>";
-
-        foreach ($galleryPictures as $v) {
-            $pictureTags = $v->pictureTags()->get();
-            $loadPicture = $this->router->urlFor('pictureDetails', [['id', $picture[$index]->picture_id]]);
-            $addTags = $this->router->urlFor('updatePicture', [['id', $picture[$index]->picture_id]]);
-            $deletePicTag = $this->router->urlFor('deletePictureTag', [['id', $picture[$index]->picture_id]]);
-            $deletePicture = $this->router->urlFor('deletePicture', [['id', $picture[$index]->picture_id]]);
-
-            $html .= "<div> <a href = '$loadPicture'><img src =" . "upload/" . $v->file . "></a><aside><nav>";
-            $index++;
+        
+        foreach ($galleryPictures as $v) {  
+                $pictureTags = $v->pictureTags()->get();          
+                $loadPicture = $this->router->urlFor('pictureDetails',[['id',$picture[$index]->picture_id]]);
+                $addTags = $this->router->urlFor('updatePicture',[['id',$picture[$index]->picture_id]]);
+                $deletePicTag = $this->router->urlFor('deletePictureTag',[['id',$picture[$index]->picture_id]]);
+                $deletePicture = $this->router->urlFor('deletePicture',[['id',$picture[$index]->picture_id]]);
+                
+                $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside>";
+                $index++;
             foreach ($pictureTags as $v1) {
-                $html .= "$v1->name";
+                $html .= "$v1->name ";
             }
-
-
-            $html .= "<a href='$addTags'><button>Ajouter un tag</button></a><a href='$deletePicTag'><button>Supprimer un tag</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></nav></aside></div>";
+            $html .= "<nav><a href='$addTags'><button>Ajouter tag</button></a><a href='$deletePicTag'><button>Supprimer tag</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></nav></aside></div>";
         }
         $html .= "</article>";
         

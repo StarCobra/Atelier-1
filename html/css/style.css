@@ -340,6 +340,9 @@ section > ul + div {
   justify-content: space-around;
   flex-wrap: wrap;
 }
+section > ul + div a {
+  margin-bottom: 0.6em;
+}
 
 /*------------------------------------*\
             GALLERY AND PICS
@@ -371,7 +374,8 @@ article > div a {
 article > div aside {
   display: flex;
   flex-direction: column;
-  padding: 0 1em;
+  padding: 0;
+  padding-left: 1em;
   width: 100%;
   position: relative;
   padding-bottom: 0;
@@ -385,6 +389,7 @@ article > div aside h3 {
 article > div aside > p:nth-child(2) {
   display: flex;
   justify-content: space-between;
+  padding-right: 1em;
 }
 article > div aside nav {
   display: flex;
@@ -392,7 +397,11 @@ article > div aside nav {
   padding-top: 1em;
 }
 article > div aside nav a {
-  margin: 0 1em 1em 0;
+  margin: 0 0.8em 0.8em 0;
+}
+article > div aside nav a button {
+  min-width: 100px;
+  max-width: 300px;
 }
 
 @media screen and (min-width: 600px) {
