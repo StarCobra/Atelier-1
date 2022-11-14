@@ -48,7 +48,7 @@ class GalleryView extends MediaphotoView implements Renderer
                 $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside>";
                 $index++;
             foreach ($pictureTags as $v1) {
-                $html .= "$v1->name ";
+                $html .= "<span>$v1->name</span>";
             }
             $html .= "<nav><a href='$addTags'><button>Ajouter tag</button></a><a href='$deletePicTag'><button>Supprimer tag</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></nav></aside></div>";
         }

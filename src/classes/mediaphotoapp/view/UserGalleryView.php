@@ -35,12 +35,12 @@ class UserGalleryView extends MediaphotoView implements Renderer
 
             $html .= "<div> <a href = $loadPicture><img src =" . "upload/" . $v->file . "></a><aside>";
             foreach ($pictureTags as $v1) {
-                $html .= "$v1->name ";
+                $html .= "<span>$v1->name</span>";
             }
             $html .= "</aside></div>";
         }
         $html .= "</article>";
-        
+
         return $html;
     }
 }
