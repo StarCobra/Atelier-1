@@ -4,6 +4,7 @@ namespace iutnc\mf\router;
 
 use iutnc\mf\router\AbstractRouter;
 use iutnc\tweeterapp\auth\TweeterAuthentification;
+use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
 class Router extends AbstractRouter
 {
@@ -60,7 +61,6 @@ class Router extends AbstractRouter
    */
   function run(): void
   {
-    session_start();
     /*
      * Méthode run : exécuter une route en fonction de la requête 
      *    (l'action est récupérée depuis l'attribut $this->request)
@@ -79,17 +79,20 @@ class Router extends AbstractRouter
      *        de la route et exécuter sa méthode execute
      */
     $defaut_action = self::$aliases['default'];
+   if($this->request->get['action'] !== null){
     $action = $this->request->get['action'];
-
-    // if ((TweeterAuthentification::checkAccessRight(self::$routes["$action"][1]))) {
+   } else{
+    $action = $defaut_action;
+   }
+ 
+    
+      if ((mediaphotoAuthentification::checkAccessRight(self::$routes["$action"][1]))) {
 
     if (!isset($this->request->get['action'])) {
       $ctrl = self::$routes["$defaut_action"];
-      echo "${ctrl[0]}";
       $home = new $ctrl[0];
       $home->execute();
     } else {
-      $action = $this->request->get['action'];
       if (isset(self::$routes["$action"])) {
         $home1 = new self::$routes["$action"][0];
         $home1->execute();
@@ -99,17 +102,17 @@ class Router extends AbstractRouter
         $home2->execute();
       }
     }
-    // }
-    // else {
-    //   $ctrl3 = self::$routes["$defaut_action"];
-    //   $home3 = new $ctrl3[0];
-    //   $home3->execute();
-    // }
+    }
+    else {
+      $ctrl3 = self::$routes["$defaut_action"];
+      $home3 = new $ctrl3[0];
+      $home3->execute();
+    }
   }
   public static function executeRoute(string $routeAlias): void
   {
     $ctrl = self::$routes[$routeAlias];
-    echo "$ctrl[0]";
+   
     $home = new $ctrl[0];
     $home->execute();
   }
