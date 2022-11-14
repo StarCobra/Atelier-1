@@ -37,7 +37,7 @@ use iutnc\mediaphotoapp\view\AddPictureToGalleryView;
                 $extension = strtolower(end($tabExtension));
             
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                $maxSize = 25000000;
+                $maxSize = 100000000;
 
                 $replaced = str_replace(" ", "_", $name);
                
