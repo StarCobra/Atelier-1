@@ -8,10 +8,12 @@ use iutnc\mediaphotoapp\model\Picture;
 use iutnc\mf\control\AbstractController;
 use iutnc\mediaphotoapp\view\AddPictureToGalleryView;
 
+
 class AddPictureToGalleryController extends AbstractController
 {
     public function execute(): void
     {
+
         \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Ajout Image");
         if ($this->request->method === "GET") {
             $v = new AddPictureToGalleryView();
@@ -20,6 +22,7 @@ class AddPictureToGalleryController extends AbstractController
             $gallery = Gallery::find($_GET['id']);
             $galleryId =  $gallery->gallery_id;
             if (isset($_FILES['file'])) {
+
                 $tmpName = $_FILES['file']['tmp_name'];
                 $name = $_FILES['file']['name'];
                 $size = $_FILES['file']['size'];
@@ -29,11 +32,14 @@ class AddPictureToGalleryController extends AbstractController
                 $extension = strtolower(end($tabExtension));
 
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+
                 $maxSize = 100000000;
+
 
                 $replaced = str_replace(" ", "_", $name);
 
                 if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
+
                     move_uploaded_file($tmpName, 'upload/' . $replaced);
 
                     $req = new Picture();

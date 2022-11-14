@@ -25,6 +25,7 @@ class AddTagsController extends AbstractController
                   $n = 1;
                }
             }
+
             if ($n == 1) {
                $v = new AddTagsView($gallery);
                $v->makePage();
