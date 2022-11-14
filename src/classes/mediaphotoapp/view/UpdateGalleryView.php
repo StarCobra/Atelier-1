@@ -18,9 +18,7 @@ class UpdateGalleryView extends MediaphotoView implements Renderer
             $tags .= $tag[$i]->name;
             if ($i < count($tag) - 1) $tags .= ", ";
         }
-
         $updateGallery = $this->router->urlFor('updateGallery', [['id', $gallery->gallery_id]]);
-
         $html = "<section>
 
                 <h3>Créer une galerie</h3>
@@ -41,7 +39,6 @@ class UpdateGalleryView extends MediaphotoView implements Renderer
                 \n</form>
 
                 \n</section>";
-
 
         return $html;
     }

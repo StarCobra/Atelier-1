@@ -39,7 +39,6 @@ class OtherUserView extends MediaphotoView implements Renderer
 
             $finalView .= $image . $description;
         }
-
         return $infoProfil . $finalView   . "</article>";
     }
 }

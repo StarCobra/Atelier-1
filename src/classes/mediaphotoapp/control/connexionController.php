@@ -10,24 +10,21 @@ use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 class ConnexionController extends AbstractController
 {
     public function execute(): void
-    { 
-        if ($this->request->method === "GET"){
-
+    {
+        if ($this->request->method === "GET") {
             $v = new ConnexionView();
             $v->makePage();
-        }
-            else{
-
+        } else {
             $username = $_POST['pseudoCnx'];
             $password = $_POST['passwordCnx'];
-            if((!empty($username))&&(!empty($password))){
-                mediaphotoAuthentification::login($username,$password);
+
+            if ((!empty($username)) && (!empty($password))) {
+                mediaphotoAuthentification::login($username, $password);
                 $id =  mediaphotoAuthentification::connectedUser();
-            Router::executeRoute('list_galerie',["id",$id]);
-
-            }else{
+                Router::executeRoute('list_galerie', ["id", $id]);
+            } else {
                 Router::executeRoute('login');
-            }}
-
+            }
+        }
     }
 }

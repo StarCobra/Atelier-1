@@ -13,18 +13,12 @@ class UserView extends MediaphotoView implements Renderer
         $url_createGallery = (new \iutnc\mf\router\Router())->urlFor('createGallery', [['id', $user->user_id]]);
         $infoProfil = "<section><h2>Mon profil</h2>\n<ul><li>" . $user->fullname . "</li>\n<li>@" . $user->username . "</li></ul>\n<h3>Mes galeries</h3>\n<a href = '" . $url_createGallery . "'>\n<button>Créer galerie</button>\n</a></section>";
         $finalView = "<article>";
-
-
-
         $galleries = $this->data[1];
-
 
         foreach ($galleries as $v) {
             $tag = $v->galleryTags()->get();
-
             $picture = $v->pictures()->first();
-            $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
-
+            $url_gallery = $this->router->urlFor('galleryDetails', [['id', $v->gallery_id]]);
             $tags = "";
 
             if (is_null($picture)) {
@@ -34,7 +28,7 @@ class UserView extends MediaphotoView implements Renderer
             }
 
             $description = "<aside><h3>" . $v->name . "</h3><p>" . $user->username . "<br>";
-       
+
             for ($i = 0; $i < count($tag); $i++) {
                 $tags .= $tag[$i]->name . " ";
             }
@@ -42,7 +36,6 @@ class UserView extends MediaphotoView implements Renderer
 
             $finalView .= $image . $description;
         }
-
         return $infoProfil . $finalView  . "</article>";
     }
 }

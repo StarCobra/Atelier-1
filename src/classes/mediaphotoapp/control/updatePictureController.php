@@ -8,8 +8,7 @@ use iutnc\mf\control\AbstractController;
 use iutnc\mediaphotoapp\view\UpdatePictureView;
 use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
-
- class UpdatePictureController extends AbstractController  
+class UpdatePictureController extends AbstractController
 {
    public function execute(): void
    {
@@ -24,10 +23,10 @@ use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
             for ($i = 0; $i < count($tag); $i++) {
                if ($tag[$i]->name == $_POST["tag"]) {
                   $n = 1;
-               } 
+               }
             }
-            
-            if($n == 1) {
+
+            if ($n == 1) {
                $v = new UpdatePictureView($picture);
                $v->makePage();
             } else {
@@ -47,7 +46,6 @@ use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
                Router::executeRoute('view_userProfil', ["user_id", $_GET['id']]);
             }
-
          } else {
             $v = new UpdatePictureView($picture);
             $v->makePage();
