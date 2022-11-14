@@ -6,20 +6,16 @@ use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Gallery;
 use iutnc\mediaphotoapp\model\Picture;
 use iutnc\mf\control\AbstractController;
-use iutnc\mediaphotoapp\model\GalleryPicture;
-use iutnc\mediaphotoapp\view\UpdateGalleryView;
 use iutnc\mediaphotoapp\view\AddPictureToGalleryView;
-
-
 
 
 class AddPictureToGalleryController extends AbstractController
 {
     public function execute(): void
     {
-        if ($this->request->method === "GET") {
-            // $gallery = Gallery::find($_GET['id']);
 
+        \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Ajout Image");
+        if ($this->request->method === "GET") {
             $v = new AddPictureToGalleryView();
             $v->makePage();
         } else {
@@ -36,7 +32,9 @@ class AddPictureToGalleryController extends AbstractController
                 $extension = strtolower(end($tabExtension));
 
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                $maxSize = 250000000;
+
+                $maxSize = 100000000;
+
 
                 $replaced = str_replace(" ", "_", $name);
 

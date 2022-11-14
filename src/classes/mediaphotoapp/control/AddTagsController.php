@@ -4,7 +4,6 @@ namespace iutnc\mediaphotoapp\control;
 
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Gallery;
-use iutnc\mediaphotoapp\model\Tag;
 use iutnc\mediaphotoapp\view\AddTagsView;
 use iutnc\mf\control\AbstractController;
 
@@ -12,6 +11,7 @@ class AddTagsController extends AbstractController
 {
    public function execute(): void
    {
+      \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Ajouter Tag");
       $gallery = Gallery::find($_GET['id']);
       $n = 2;
 

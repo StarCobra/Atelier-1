@@ -52,6 +52,7 @@ class HomeView extends MediaphotoView implements Renderer
             }
         }
         $html .= "</article>";
+
         return $html;
     }
 }

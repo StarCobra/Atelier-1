@@ -18,12 +18,10 @@ class UpdateGalleryView extends MediaphotoView implements Renderer
             $tags .= $tag[$i]->name;
             if ($i < count($tag) - 1) $tags .= ", ";
         }
-
         $updateGallery = $this->router->urlFor('updateGallery', [['id', $gallery->gallery_id]]);
-
         $html = "<section>
 
-                <h3>Créer une galerie</h3>
+                <h3>Modifier une galerie</h3>
                 \n<form action = '$updateGallery' method = 'POST'>
                     \n<label for = 'name'>Nom de la galerie</label>
                     \n<input type = 'text' name = 'name' value = $gallery->name>
@@ -37,11 +35,10 @@ class UpdateGalleryView extends MediaphotoView implements Renderer
                         \n<option value = '1'>Privé</option>
                     \n</select>
 
-                    \n<input type = 'submit' value ='send' name = 'submit'>
+                    \n<input type = 'submit' value ='Confirmer' name = 'submit'>
                 \n</form>
 
                 \n</section>";
-
 
         return $html;
     }

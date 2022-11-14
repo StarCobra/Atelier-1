@@ -5,7 +5,6 @@ namespace iutnc\mediaphotoapp\control;
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Picture;
 use iutnc\mf\control\AbstractController;
-use iutnc\mediaphotoapp\model\User;
 use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
 class DeletePictureController extends AbstractController

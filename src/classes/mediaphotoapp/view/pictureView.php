@@ -9,6 +9,7 @@ class PictureView extends MediaphotoView implements Renderer
 {
     public function render(): string
     {
+
         $prevPicture = $this->data[0];
         $picture = $this->data[1];
         $nextPicture = $this->data[2];
@@ -30,3 +31,4 @@ class PictureView extends MediaphotoView implements Renderer
         return $html;
     }
 }
+

@@ -11,9 +11,9 @@ class UserController extends \iutnc\mf\control\AbstractController
 {
     public function execute(): void
     {
+
+        \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Profil");
         if (isset($_GET["id"])) {
-
-
             $id =  mediaphotoAuthentification::connectedUser();
 
             $myProfile = User::where('user_id', '=', $id)->first();
@@ -23,7 +23,6 @@ class UserController extends \iutnc\mf\control\AbstractController
             $data = [$myProfile, $galleries, $privateGalleriesCanVisit];
 
             $instance = new UserView($data);
-            \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Utilisateur");
             $instance->makePage();
         }
     }

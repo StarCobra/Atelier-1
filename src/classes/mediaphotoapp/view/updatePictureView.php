@@ -16,9 +16,7 @@ class UpdatePictureView extends MediaphotoView implements Renderer
             $tags .= $tag[$i]->name;
             if ($i < count($tag) - 1) $tags .= ", ";
         }
-
         $updatePic = $this->router->urlFor('updatePicture', [['id', $picture->picture_id]]);
-
         $html = "<div>
                 \n<h3>Ajouter #Tags</h3>
                 \n<form action = '$updatePic' method = 'POST'>

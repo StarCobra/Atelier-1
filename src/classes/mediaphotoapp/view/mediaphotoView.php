@@ -14,7 +14,10 @@ class MediaphotoView extends AbstractView
         $url_deconnexion = $this->router->urlFor('deconnexion');
         $url_inscription = $this->router->urlFor('inscription');
         $url_creator = $this->router->urlFor('user', [['id', $id]]);
+
         $url_deleteAccount = $this->router->urlFor('DeleteAccount', [['id', $id]]);
+
+
 
         if ($id === null) {
 
