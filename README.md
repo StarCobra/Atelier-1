@@ -46,3 +46,7 @@ prefix    = ''
 http://localhost/Atelier-1/main.php
 
 Selon votre configuration, l'URL peut changer.
+
+https://webetu.iutnc.univ-lorraine.fr/www/zidane13u/Atelier-1/
+
+Le projet est aussi mis en ligne sur webetu.
