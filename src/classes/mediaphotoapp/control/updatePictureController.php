@@ -12,6 +12,7 @@ class UpdatePictureController extends AbstractController
 {
    public function execute(): void
    {
+      \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Ajouter Tag");
       $picture = Picture::find($_GET['id']);
       $n = 2;
 

@@ -10,6 +10,7 @@ class UserGalleryController extends AbstractController
 {
    public function execute(): void
    {
+      \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Galerie");
       $galleryId = $_GET['id'];
 
       $gallery = Gallery::where('gallery_id', '=', $galleryId)->first();

@@ -11,6 +11,7 @@ class AddTagsController extends AbstractController
 {
    public function execute(): void
    {
+      \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Ajouter Tag");
       $gallery = Gallery::find($_GET['id']);
       $n = 2;
 
@@ -24,6 +25,7 @@ class AddTagsController extends AbstractController
                   $n = 1;
                }
             }
+
             if ($n == 1) {
                $v = new AddTagsView($gallery);
                $v->makePage();

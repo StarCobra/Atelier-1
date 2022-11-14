@@ -11,6 +11,7 @@ class ConnexionController extends AbstractController
 {
     public function execute(): void
     {
+        \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Connexion");
         if ($this->request->method === "GET") {
             $v = new ConnexionView();
             $v->makePage();

@@ -11,7 +11,9 @@ class GalleryController extends AbstractController
 {
    public function execute(): void
    {
+      \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Modifier Galerie");
       $galleryId = $_GET['id'];
+
       $gallery = Gallery::where('gallery_id', '=', $galleryId)->first();
       $v = new GalleryView($gallery);
       $v->makePage();

@@ -14,7 +14,7 @@ class Gallery extends \Illuminate\Database\Eloquent\Model
     }
     public function galleryToAccess()
     {
-        return $this->belongsToMany('iutnc\mediaphotoapp\model\user', 'access_gallery_user', 'gallery_id', 'user_id');
+        return $this->belongsToMany('iutnc\mediaphotoapp\model\user', 'access_user_gallery', 'gallery_id', 'user_id');
     }
 
     public function galleryTags()
