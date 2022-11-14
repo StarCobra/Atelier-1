@@ -40,9 +40,11 @@ $router->addRoute('pictureDetails',    'view_picture',          '\iutnc\mediapho
 $router->addRoute('updatePicture',     'update_picture',        '\iutnc\mediaphotoapp\control\UpdatePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('deletePictureTag',  'delete_picture_tag',    '\iutnc\mediaphotoapp\control\DeletePictureTagController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('deletePicture',     'delete_picture',        '\iutnc\mediaphotoapp\control\DeletePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('searchTag',         'view_search_tag',       '\iutnc\mediaphotoapp\control\SearchTagController',           mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('giveAccessToUsers',     'give_access_to_users',        '\iutnc\mediaphotoapp\control\GiveAccessToUsersController',       mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
 $router->addRoute('removeAccessToUsers',     'remove_access_to_users',        '\iutnc\mediaphotoapp\control\RemoveAccessToUsersController',       mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
 $router->addRoute('DeleteAccount',     'Delete_account',        '\iutnc\mediaphotoapp\control\DeleteAccountController',       mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
+
 
 $router->setDefaultRoute('list_galeriePub');
 $router->run();
