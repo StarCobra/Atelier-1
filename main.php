@@ -40,6 +40,7 @@ $router->addRoute('pictureDetails',    'view_picture',          '\iutnc\mediapho
 $router->addRoute('updatePicture',     'update_picture',        '\iutnc\mediaphotoapp\control\UpdatePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('deletePictureTag',  'delete_picture_tag',    '\iutnc\mediaphotoapp\control\DeletePictureTagController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('deletePicture',     'delete_picture',        '\iutnc\mediaphotoapp\control\DeletePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('searchTag',         'view_search_tag',       '\iutnc\mediaphotoapp\control\SearchTagController',           mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 $router->setDefaultRoute('list_galeriePub');
 $router->run();
