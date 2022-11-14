@@ -19,7 +19,7 @@ class InscriptionController extends AbstractController
             $v->makePage();
         }
       else{
-        
+
             $firstName = $_POST['firstname'];
             $name = $_POST['name'];
             $password = $_POST['password'];
@@ -39,10 +39,10 @@ class InscriptionController extends AbstractController
             mediaphotoAuthentification::register($username,$password,$fullname,$level = mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
         Router::executeRoute('list_galeriePub');
 
-        }else{
+        } else {
             Router::executeRoute('view_inscription');
         }
             
         }
-    }
+      }
     }

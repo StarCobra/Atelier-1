@@ -15,13 +15,13 @@ class UserView extends MediaphotoView implements Renderer
         $finalView = "<article>";
 
 
+
         $galleries = $this->data[1];
 
 
         foreach ($galleries as $v) {
             $tag = $v->galleryTags()->get();
 
-       
             $picture = $v->pictures()->first();
             $url_gallery = $this->router->urlFor('galleryDetails',[['id',$v->gallery_id]]);
 

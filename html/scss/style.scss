@@ -158,23 +158,26 @@ header{
                 border: solid 1px grey;
                 border-top: none;
                 background-color: $white1;
-                button{
-                    border: none;
-                    background: none;
-                    width: 260px;
-                    & > a {
+                & > a {
+                    color: black;
+                    button{
+                        border: none;
+                        background: none;
+                        width: 260px;
                         color: black;
                         font-weight: 600;
                         font-size: 1.2em;
                     }
                 }
-                button:hover{
-                    border: none;
-                    background: none;
-                    & > a {
+                & > a:hover {
+                    color: $vert1;
+                    button{
+                        border: none;
+                        background: none;
                         color: $vert1;
                     }
                 }
+                
             }
             li:nth-child(1){
                 border-top: 1px solid grey;

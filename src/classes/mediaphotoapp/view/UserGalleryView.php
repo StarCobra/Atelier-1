@@ -11,11 +11,14 @@ class UserGalleryView extends MediaphotoView implements Renderer
     {   
         $gallery=$this->data;
         $html = "";
+        $index=0;
 
         $galleryPictures = $gallery->pictures()->get();
         $picturesNumber = count($galleryPictures);
 
         $galleryTags = $gallery->galleryTags()->get();
+
+        $picture = \iutnc\mediaphotoapp\model\Picture::where('gallery_id','=',$gallery->gallery_id)->get();
         
 
         $creator = $gallery->user()->first();
@@ -31,7 +34,11 @@ class UserGalleryView extends MediaphotoView implements Renderer
         $html .="</section><article>";
         foreach ($galleryPictures as $v) {
             $pictureTags = $v->pictureTags()->get();
-                $html .= "<div> <a href = '#'><img src ="."upload/".$v->file."></a><aside>";
+
+            $loadPicture = $this->router->urlFor('pictureDetails',[['id',$picture[$index]->picture_id]]);
+            $index++;
+            
+                $html .= "<div> <a href = $loadPicture><img src ="."upload/".$v->file."></a><aside>";
             foreach ($pictureTags as $v1) {
                 $html.= "$v1->name ";
             }

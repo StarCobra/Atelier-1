@@ -17,12 +17,14 @@ class ConnexionController extends AbstractController
             $v->makePage();
         }
             else{
+
             $username = $_POST['pseudoCnx'];
             $password = $_POST['passwordCnx'];
             if((!empty($username))&&(!empty($password))){
                 mediaphotoAuthentification::login($username,$password);
                 $id =  mediaphotoAuthentification::connectedUser();
             Router::executeRoute('list_galerie',["id",$id]);
+
             }else{
                 Router::executeRoute('login');
             }}

@@ -263,21 +263,23 @@ header > nav ul li {
   border-top: none;
   background-color: #fafafa;
 }
-header > nav ul li button {
+header > nav ul li > a {
+  color: black;
+}
+header > nav ul li > a button {
   border: none;
   background: none;
   width: 260px;
-}
-header > nav ul li button > a {
   color: black;
   font-weight: 600;
   font-size: 1.2em;
 }
-header > nav ul li button:hover {
+header > nav ul li > a:hover {
+  color: #005e3b;
+}
+header > nav ul li > a:hover button {
   border: none;
   background: none;
-}
-header > nav ul li button:hover > a {
   color: #005e3b;
 }
 header > nav ul li:nth-child(1) {
