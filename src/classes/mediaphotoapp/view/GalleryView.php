@@ -43,13 +43,13 @@ class GalleryView extends MediaphotoView implements Renderer
                 $updatePicture = $this->router->urlFor('updatePicture',[['id',$picture[$index]->picture_id]]);
                 $deletePicture = $this->router->urlFor('deletePicture',[['id',$picture[$index]->picture_id]]);
                 
-                $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside>";
+                $html .= "<div> <a href = '$loadPicture'><img src ="."upload/".$v->file."></a><aside><nav>";
                 $index++;
             foreach ($pictureTags as $v1) {
                 $html .= "$v1->name";
             }
 
-            $html .= "<a href='$updatePicture'><button>Modifier l'image</button></a><a href='$deletePicture'><button> Supprimer l'image </button></a></aside></div>";
+            $html .= "<a href='$updatePicture'><button>Modifier</button></a><a href='$deletePicture'><button>Supprimer</button></a></nav></aside></div>";
         }
         $html .= "</article>";
         return $html;
