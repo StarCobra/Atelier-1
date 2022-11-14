@@ -38,14 +38,15 @@ use iutnc\mediaphotoapp\view\AddPictureToGalleryView;
             
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
                 $maxSize = 25000000;
-             
+
+                $replaced = str_replace(" ", "_", $name);
                
                 if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
     
-                    move_uploaded_file($tmpName, 'upload/'.$name);
+                    move_uploaded_file($tmpName, 'upload/'.$replaced);
             
                     $req = new Picture();        
-                    $req->file = $name;
+                    $req->file = $replaced;
                     $req->type = $extension;
                     $req->gallery_id=$galleryId;
                     $req->save();

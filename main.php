@@ -1,7 +1,9 @@
 <?php
+
 session_start();
 
-use iutnc\mediaphotoapp\model\Gallery;
+//error_reporting(0);
+//ini_set('display_errors', 0);
 
 require_once 'vendor/autoload.php';
 
@@ -36,6 +38,7 @@ $router->addRoute('userGalleryDetails','view_user_gallery',     '\iutnc\mediapho
 $router->addRoute('deleteGallery',     'delete_gallery',        '\iutnc\mediaphotoapp\control\DeleteGalleryController',       mediaphotoAuthentification::ACCESS_LEVEL_AUTHENTIFICATE_USER);
 $router->addRoute('pictureDetails',    'view_picture',          '\iutnc\mediaphotoapp\control\PictureController',             mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('updatePicture',     'update_picture',        '\iutnc\mediaphotoapp\control\UpdatePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
+$router->addRoute('deletePictureTag',  'delete_picture_tag',    '\iutnc\mediaphotoapp\control\DeletePictureTagController',    mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 $router->addRoute('deletePicture',     'delete_picture',        '\iutnc\mediaphotoapp\control\DeletePictureController',       mediaphotoAuthentification::ACCESS_LEVEL_NONE);
 
 $router->setDefaultRoute('list_galeriePub');

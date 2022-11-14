@@ -1,22 +1,22 @@
 <?php
 
 namespace iutnc\mediaphotoapp\control;
-
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Picture;
+use iutnc\mediaphotoapp\view\SuppTagView;
 use iutnc\mf\control\AbstractController;
-use iutnc\mediaphotoapp\view\UpdatePictureView;
 use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
+use iutnc\mediaphotoapp\view\DeletePictureTagView;
+use iutnc\mediaphotoapp\view\DeleteTagsView;
 
-
- class UpdatePictureController extends AbstractController  
+class DeletePictureTagController extends AbstractController
 {
    public function execute(): void
-   {
+   { 
       $picture = Picture::find($_GET['id']);
       $n = 2;
 
-      if (isset($_POST["submitTag"])) {
+      if (isset($_POST["submitErase"])) {
          if (mb_substr($_POST["tag"], 0, 1) == "#") {
             mb_strtolower($_POST["tag"]);
             $tag = $picture->pictureTags()->get();
@@ -28,32 +28,31 @@ use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
             }
             
             if($n == 1) {
-               $v = new UpdatePictureView($picture);
-               $v->makePage();
-            } else {
-               $req = new \iutnc\mediaphotoapp\model\Tag();
-               $req->name = $_POST["tag"];
-               $req->save();
-
-               $tag = \iutnc\mediaphotoapp\model\Tag::select()->orderBy("tag_id", "DESC")->first();
-
-               $req1 = new \iutnc\mediaphotoapp\model\PictureTag();
-               $req1->tag_id = $tag->tag_id;
-               $req1->picture_id = $picture->picture_id;
-               $req1->save();
-
+               $pictureTags = $picture->pictureTags()->get();
+               $name =  \iutnc\mediaphotoapp\model\Tag::where('name', '=', $_POST['tag'])->first();
+               foreach ($pictureTags as $v) {
+                  if($v->name === $name->name){
+                     $v->pictureTags()->detach();
+                     $v->delete();
+                  }
+               } 
+               
                $id = mediaphotoAuthentification::connectedUser();
+
                $_GET['id'] = $id;
 
                Router::executeRoute('view_userProfil', ["user_id", $_GET['id']]);
+            } else {
+               $v = new DeletePictureTagView($picture);
+               $v->makePage();
             }
 
          } else {
-            $v = new UpdatePictureView($picture);
+            $v = new DeletePictureTagView($picture);
             $v->makePage();
          }
       } else {
-         $v = new UpdatePictureView($picture);
+         $v = new DeletePictureTagView($picture);
          $v->makePage();
       }
    }
