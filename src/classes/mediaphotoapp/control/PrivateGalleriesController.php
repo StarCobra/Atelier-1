@@ -12,6 +12,7 @@ class PrivateGalleriesController extends AbstractController
 {
    public function execute(): void
    {
+      \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Accueil");
       $id =  mediaphotoAuthentification::connectedUser();
 
       $myProfile = User::where('user_id', '=', $id)->first();

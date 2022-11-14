@@ -60,11 +60,6 @@ CREATE TABLE IF NOT EXISTS `gallery` (
 -- Déchargement des données de la table `gallery`
 --
 
-INSERT INTO `gallery` (`gallery_id`, `name`, `description`, `created_at`, `updated_at`, `status`, `user_id`) VALUES
-(1, 'test', 'come on', '1970-01-01 00:00:00', '2022-11-11 13:12:44', 0, 1),
-(2, 'watch-me12', 'vous allez trouver les meilleurs photos d', '2022-11-09 15:39:12', '2022-11-12 13:39:03', 0, 1),
-(3, 'EmptyGallery', 'TEST', '2022-11-10 14:36:26', '2022-11-10 14:36:26', 0, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -85,11 +80,6 @@ CREATE TABLE IF NOT EXISTS `gallery_to_tag` (
 -- Déchargement des données de la table `gallery_to_tag`
 --
 
-INSERT INTO `gallery_to_tag` (`id`, `tag_id`, `gallery_id`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(8, 25, 2),
-(9, 26, 2);
 
 -- --------------------------------------------------------
 
@@ -112,23 +102,6 @@ CREATE TABLE IF NOT EXISTS `picture` (
 -- Déchargement des données de la table `picture`
 --
 
-INSERT INTO `picture` (`picture_id`, `type`, `file`, `added_date`, `gallery_id`) VALUES
-(9, 'jpg', '2.jpg', NULL, 2),
-(10, 'png', '3.png', NULL, 2),
-(11, 'png', '3.png', NULL, 2),
-(12, 'png', '3.png', NULL, 2),
-(13, 'jpg', 'siberian-husky.jpg', NULL, 1),
-(14, 'jpg', 'siberian-husky.jpg', NULL, 1),
-(15, 'jpg', 'siberian-husky.jpg', NULL, 1),
-(16, 'jpg', 'siberian-husky.jpg', NULL, 1),
-(17, 'jpg', '1144794.jpg', NULL, 2),
-(18, 'jpg', '1144794.jpg', NULL, 2),
-(19, 'jpg', '1144794.jpg', NULL, 2),
-(20, 'jpg', 'Fatalis2.jpg', NULL, 2),
-(21, 'jpg', '1140729.jpg', NULL, 2),
-(22, 'jpg', '1144794.jpg', NULL, 1),
-(23, 'jpg', '1144794.jpg', NULL, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -149,14 +122,6 @@ CREATE TABLE IF NOT EXISTS `picture_to_tag` (
 -- Déchargement des données de la table `picture_to_tag`
 --
 
-INSERT INTO `picture_to_tag` (`id`, `tag_id`, `picture_id`) VALUES
-(1, 3, 1),
-(2, 1, 2),
-(3, 1, 3),
-(4, 1, 4),
-(5, 2, 1),
-(6, 2, 2),
-(7, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -175,13 +140,6 @@ CREATE TABLE IF NOT EXISTS `tag` (
 -- Déchargement des données de la table `tag`
 --
 
-INSERT INTO `tag` (`tag_id`, `name`) VALUES
-(1, '#anime'),
-(2, '#action'),
-(3, '#characters'),
-(11, '#moi'),
-(25, '#lp'),
-(26, '#chats');
 
 -- --------------------------------------------------------
 
@@ -204,8 +162,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `fullname`, `mail_address`, `password`, `level`) VALUES
-(1, 'Paul', 'Paul Smart', 'damien@paulgmail.com', 'jpp', 0);
 
 --
 -- Contraintes pour les tables déchargées

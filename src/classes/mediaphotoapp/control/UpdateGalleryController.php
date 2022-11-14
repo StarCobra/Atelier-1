@@ -11,6 +11,7 @@ class UpdateGalleryController extends AbstractController
 {
     public function execute(): void
     {
+        \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Modifier Galerie");
         if ($this->request->method === "GET") {
             $gallery = Gallery::find($_GET['id']);
 
@@ -21,7 +22,6 @@ class UpdateGalleryController extends AbstractController
             $name = $_POST['name'];
             $description = $_POST['description'];
             $status = $_POST['confidentialite'];
-
 
             $gallery->name = $name;
             $gallery->description = $description;

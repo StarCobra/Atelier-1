@@ -19,8 +19,8 @@ class DeleteTagsView extends MediaphotoView implements Renderer
 
         $suppTags = $this->router->urlFor('deleteTags', [['id', $gallery->gallery_id]]);
 
-        $html = "<div>
-                \n<h3>Supprimer #Tags</h3>
+        $html = "<section>
+                \n<h2>Supprimer #Tags</h2>
                 \n<form action = '$suppTags' method = 'POST'>
                     \n<label for = 'tags'> Vos #Tags : " . $tags . "</label><br>
                     \n<label for = 'tag'>Nom du #Tag</label>
@@ -29,23 +29,23 @@ class DeleteTagsView extends MediaphotoView implements Renderer
             if (mb_substr($_POST["tag"], 0, 1) !== "#") {
                 $html2 = "\n<p>Votre tag doit commencer par un # !</p>\n<input type = 'submit' value ='Supprimer le tag' name = 'submitErase'>
                 \n</form>
-                \n</div>";
+                \n</section>";
             } else {
                 $html2 =  "\n<input type = 'submit' value ='Supprimer le tag' name = 'submitErase'>
                 \n</form>
-                \n</div>";
+                \n</section>";
                 for ($i = 0; $i < count($tag); $i++) {
                     if ($tag[$i]->name !== $_POST["tag"]) {
                         $html2 = "\n<p>Ce tag n'existe pas !</p>\n<input type = 'submit' value ='Supprimer le tag' name = 'submitErase'>
                         \n</form>
-                        \n</div>";
+                        \n</section>";
                     }
                 }
             }
         } else {
             $html2 =  "\n<input type = 'submit' value ='Supprimer le tag' name = 'submitErase'>
                 \n</form>
-                \n</div>";
+                \n</section>";
         }
         return $html . $html2;
     }

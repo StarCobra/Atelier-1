@@ -10,9 +10,9 @@ class CreateGalleryController extends \iutnc\mf\control\AbstractController
 {
     public function execute(): void
     {
+        \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Création Galerie");
         if ($this->request->method === "GET") {
             $instance = new CreateGalleryView();
-            \iutnc\mf\view\AbstractView::setAppTitle("Media Photo : Création galerie");
             $instance->makePage();
         } else {
             $requete = new Gallery();

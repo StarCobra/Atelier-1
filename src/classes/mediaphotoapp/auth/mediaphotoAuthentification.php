@@ -13,6 +13,7 @@ class mediaphotoAuthentification extends AbstractAuthentification
     public static function register(string $username,
                                  string $password,
                                  string $fullname,
+                                 string $mail,
 
                                  $level=self::ACCESS_LEVEL_AUTHENTIFICATE_USER): void {
 
@@ -30,6 +31,7 @@ class mediaphotoAuthentification extends AbstractAuthentification
              $u->fullname = $fullname ;
              $u->username = $username;
              $u->password = $empreinte;
+             $u->mail_address = $mail;
              $u->level = $level;
              $u->save();
          }

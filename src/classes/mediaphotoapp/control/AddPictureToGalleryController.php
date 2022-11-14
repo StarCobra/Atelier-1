@@ -12,6 +12,7 @@ class AddPictureToGalleryController extends AbstractController
 {
     public function execute(): void
     {
+        \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Ajout Image");
         if ($this->request->method === "GET") {
             $v = new AddPictureToGalleryView();
             $v->makePage();
@@ -28,7 +29,7 @@ class AddPictureToGalleryController extends AbstractController
                 $extension = strtolower(end($tabExtension));
 
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                $maxSize = 250000000;
+                $maxSize = 100000000;
 
                 $replaced = str_replace(" ", "_", $name);
 

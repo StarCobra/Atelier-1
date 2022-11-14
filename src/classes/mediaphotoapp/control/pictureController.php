@@ -10,6 +10,7 @@ class PictureController extends AbstractController
 {
    public function execute(): void
    {
+      \iutnc\mf\view\AbstractView::SetAppTitle("Media Photo : Image");
       $pictureId = $_GET['id'];
 
       $picture = Picture::where('picture_id', '=', $pictureId)->first();
