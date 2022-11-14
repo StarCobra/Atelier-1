@@ -19,7 +19,8 @@ class AddTagsView extends MediaphotoView implements Renderer
         $addTags = $this->router->urlFor('addTags', [['id', $gallery->gallery_id]]);
 
         $html = "<section>
-                \n<h2>Modifier #Tags</h2>
+                \n<h2>Ajouter #Tags</h2>
+
                 \n<form action = '$addTags' method = 'POST'>
                     \n<label for = 'tags'> Vos #Tags : " . $tags . "</label><br>
                     \n<label for = 'tag'>Nom du #Tag</label>

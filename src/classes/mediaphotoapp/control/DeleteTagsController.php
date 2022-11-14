@@ -1,24 +1,21 @@
 <?php
 
 namespace iutnc\mediaphotoapp\control;
-
 use iutnc\mf\router\Router;
 use iutnc\mediaphotoapp\model\Gallery;
 use iutnc\mediaphotoapp\model\Tag;
 use iutnc\mediaphotoapp\view\AddTagsView;
+use iutnc\mediaphotoapp\view\DeleteTagsView;
 use iutnc\mf\control\AbstractController;
 
-
-
-
-class AddTagsController extends AbstractController
+class DeleteTagsController extends AbstractController
 {
    public function execute(): void
    {
       $gallery = Gallery::find($_GET['id']);
       $n = 2;
 
-      if (isset($_POST["submitTag"])) {
+      if (isset($_POST["submitErase"])) {
          if (mb_substr($_POST["tag"], 0, 1) == "#") {
             mb_strtolower($_POST["tag"]);
             $tag = $gallery->galleryTags()->get();
@@ -26,33 +23,30 @@ class AddTagsController extends AbstractController
             for ($i = 0; $i < count($tag); $i++) {
                if ($tag[$i]->name == $_POST["tag"]) {
                   $n = 1;
-               }  
+               } 
             }
             
-            if($n = 1) {
-               $v = new AddTagsView($gallery);
-               $v->makePage();
-            } else {
-               $req = new \iutnc\mediaphotoapp\model\Tag();
-               $req->name = $_POST["tag"];
-               $req->save();
-
-               $tag = \iutnc\mediaphotoapp\model\Tag::select()->orderBy("tag_id", "DESC")->first();
-
-               $req1 = new \iutnc\mediaphotoapp\model\GalleryTag();
-               $req1->tag_id = $tag->tag_id;
-               $req1->gallery_id = $gallery->gallery_id;
-               $req1->save();
-
+            if($n == 1) {
+               $galleryTags = $gallery->galleryTags()->get();
+               $name =  \iutnc\mediaphotoapp\model\Tag::where('name', '=', $_POST['tag'])->first();
+               foreach ($galleryTags as $v) {
+                  if($v->name === $name->name){
+                     $v->galleryTags()->detach();
+                     $v->delete();
+                  }
+               } 
                Router::executeRoute('view_gallery', ["gallery_id", $gallery->gallery_id]);
+            } else {
+                  $v = new DeleteTagsView($gallery);
+                  $v->makePage();
             }
 
          } else {
-            $v = new AddTagsView($gallery);
+            $v = new DeleteTagsView($gallery);
             $v->makePage();
          }
       } else {
-         $v = new AddTagsView($gallery);
+         $v = new DeleteTagsView($gallery);
          $v->makePage();
       }
    }
