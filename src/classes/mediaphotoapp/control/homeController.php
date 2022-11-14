@@ -11,6 +11,7 @@ class HomeController extends AbstractController
    public function execute(): void
    {
       $publicGalleries = Gallery::where('status', '=', '0')->get();
+      
       $v = new HomeView($publicGalleries);
       $v->makePage();
    }
