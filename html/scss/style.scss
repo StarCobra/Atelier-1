@@ -4,7 +4,7 @@
                 DEFINE
 \*------------------------------------*/
 
-$vert1: #005e3b;
+$green1: #005e3b;
 $white1: #fafafa;
 
 * {
@@ -24,7 +24,7 @@ ol, ul {
 }
 
 html {
-    scrollbar-color: $vert1 #f2f2f1;
+    scrollbar-color: $green1 #f2f2f1;
     scrollbar-width: thin;
     scroll-behavior: smooth;
 }
@@ -39,7 +39,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: $vert1;
+    background-color: $green1;
     border-radius: 5px;
 }
 input{
@@ -62,8 +62,8 @@ button, input[type=submit] {
     transition: all 0.3s ease;
     outline: none;
     border-radius: 20px;
-    border: 2px solid $vert1;
-    background: $vert1;
+    border: 2px solid $green1;
+    background: $green1;
     & > a {
         color: #fff;
         text-decoration: none;
@@ -72,13 +72,26 @@ button, input[type=submit] {
 
 button:hover, input[type=submit]:hover {
     background: #fff;
-    color: $vert1;
+    color: $green1;
     & > a {
-        color: $vert1;
+        color: $green1;
+    }
+}
+@mixin tags {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 4px 8px;
+    span {
+        border-radius: 12px;
+        border: 1px solid grey;
+        padding: 4px;
+        margin-top: 4px;
+        margin-bottom: 4px;
     }
 }
 a{
-    color: $vert1;
+    color: $green1;
 }
 div, img, aside{
     border-radius: 12px;
@@ -138,7 +151,7 @@ header{
         }
         button:hover{
             svg{
-                fill: $vert1;
+                fill: $green1;
             }
         }
     }
@@ -146,7 +159,7 @@ header{
         cursor: pointer;
         div{
             font-size: 36px;
-            color: $vert1;
+            color: $green1;
             font-weight: bolder;
             padding: 12px;
         }
@@ -174,11 +187,11 @@ header{
                     }
                 }
                 & > a:hover {
-                    color: $vert1;
+                    color: $green1;
                     button{
                         border: none;
                         background: none;
-                        color: $vert1;
+                        color: $green1;
                     }
                 }
                 
@@ -251,6 +264,16 @@ section {
             }
         }
     }
+    figcaption{
+        @include tags();
+    }
+    div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1em 1em 0 1em;
+        gap: 1em;
+    }
 }
 
 /*------------------------------------*\
@@ -258,12 +281,6 @@ section {
 \*------------------------------------*/
 
 article {
-    /*
-    display: flex;
-    gap: 1.5em 2.5%;
-    flex-wrap: wrap;
-    */
-    display: column;
     columns: 2;
     padding: 2em 1em;
     &>div {
@@ -276,10 +293,23 @@ article {
         @extend .s12;
         margin-bottom: 1em;
         break-inside: avoid;
-        a{
+        &>a{
             display: flex;
             position: relative;
             text-decoration: none;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            img{
+                opacity: 1;
+                transition: all 0.3s ease;
+            }
+        }
+        &>a:hover{
+            background: rgba(0, 0, 0, 0.8);
+            img{
+                opacity: 0.8;
+            }
         }
         aside {
             display: flex;
@@ -288,7 +318,6 @@ article {
             padding-left: 1em;
             width: 100%;
             position: relative;
-            padding-bottom: 0;
             p, h3{
                 margin-bottom: 0;
             }
@@ -299,16 +328,24 @@ article {
                 display: flex;
                 justify-content: space-between;
                 padding-right: 1em;
+                span{
+                    text-align: right;
+                }
+            }
+            & > figcaption{
+                @include tags();
             }
             nav{
                 display: flex;
                 flex-wrap: wrap;
                 padding-top: 1em;
                 a{
-                    margin: 0 0.8em 0.8em 0;
+                    margin: 0 4px 8px 0;
                     button{
-                        min-width: 100px;
+                        min-width: 80px;
                         max-width: 300px;
+                        padding: 3px 6px;
+                        min-height: 30px;
                     }
                 }
             }
@@ -325,6 +362,10 @@ article {
         columns: 4;
     }
 }
+
+/*------------------------------------*\
+                SLIDESHOW
+\*------------------------------------*/
 
 figure{
     display: flex;
@@ -353,11 +394,11 @@ figure{
                 border: 2px solid white;
             }
             button:hover{
-                border: 2px solid $vert1;
+                border: 2px solid $green1;
             }
         }
     }
-    aside{
-        margin-top: 1em;
+    figcaption{
+        @include tags();
     }
 }
