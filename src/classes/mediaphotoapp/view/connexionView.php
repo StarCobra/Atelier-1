@@ -8,9 +8,9 @@ use iutnc\mediaphotoapp\view\MediaphotoView;
 class ConnexionView extends MediaphotoView implements Renderer
 {
     public function render(): string
-    {   
+    {
 
-        $login= $this->router->urlFor('connexion');
+        $login = $this->router->urlFor('connexion');
 
         $html = "<section>
 
