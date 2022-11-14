@@ -7,7 +7,7 @@ use iutnc\mediaphotoapp\view\UserView;
 class UserController extends \iutnc\mf\control\AbstractController
 {
     public function execute(): void
-    { 
+    {
         if (isset($_GET["id"])) {
 
             $id = $_GET["id"];
