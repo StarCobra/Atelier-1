@@ -23,6 +23,10 @@ ol, ul {
     list-style: none;
 }
 
+/*------------------------------------*\
+                Scroll Bar
+\*------------------------------------*/
+
 html {
     scrollbar-color: $green1 #f2f2f1;
     scrollbar-width: thin;
@@ -42,6 +46,9 @@ html::-webkit-scrollbar-thumb {
     background-color: $green1;
     border-radius: 5px;
 }
+
+
+
 input{
     min-width: 100px;
     height: 40px;

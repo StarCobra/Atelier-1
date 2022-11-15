@@ -3,7 +3,6 @@
 namespace iutnc\mf\router;
 
 use iutnc\mf\router\AbstractRouter;
-use iutnc\tweeterapp\auth\TweeterAuthentification;
 use iutnc\mediaphotoapp\auth\mediaphotoAuthentification;
 
 class Router extends AbstractRouter
@@ -79,31 +78,30 @@ class Router extends AbstractRouter
      *        de la route et exécuter sa méthode execute
      */
     $defaut_action = self::$aliases['default'];
-   if($this->request->get['action'] !== null){
-    $action = $this->request->get['action'];
-   } else{
-    $action = $defaut_action;
-   }
- 
-    
-      if ((mediaphotoAuthentification::checkAccessRight(self::$routes["$action"][1]))) {
-
-    if (!isset($this->request->get['action'])) {
-      $ctrl = self::$routes["$defaut_action"];
-      $home = new $ctrl[0];
-      $home->execute();
+    if ($this->request->get['action'] !== null) {
+      $action = $this->request->get['action'];
     } else {
-      if (isset(self::$routes["$action"])) {
-        $home1 = new self::$routes["$action"][0];
-        $home1->execute();
+      $action = $defaut_action;
+    }
+
+
+    if ((mediaphotoAuthentification::checkAccessRight(self::$routes["$action"][1]))) {
+
+      if (!isset($this->request->get['action'])) {
+        $ctrl = self::$routes["$defaut_action"];
+        $home = new $ctrl[0];
+        $home->execute();
       } else {
-        $ctrl2 = self::$routes["$defaut_action"][0];
-        $home2 = new $ctrl2;
-        $home2->execute();
+        if (isset(self::$routes["$action"])) {
+          $home1 = new self::$routes["$action"][0];
+          $home1->execute();
+        } else {
+          $ctrl2 = self::$routes["$defaut_action"][0];
+          $home2 = new $ctrl2;
+          $home2->execute();
+        }
       }
-    }
-    }
-    else {
+    } else {
       $ctrl3 = self::$routes["$defaut_action"];
       $home3 = new $ctrl3[0];
       $home3->execute();
@@ -112,7 +110,7 @@ class Router extends AbstractRouter
   public static function executeRoute(string $routeAlias): void
   {
     $ctrl = self::$routes[$routeAlias];
-   
+
     $home = new $ctrl[0];
     $home->execute();
   }
