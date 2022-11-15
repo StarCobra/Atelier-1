@@ -6,6 +6,7 @@ use Exception;
 use iutnc\main;
 use \iutnc\mf\exceptions as E;
 use iutnc\mf\exceptions\AuthentificationException;
+use iutnc\mediaphotoapp\view\ConnexionView;
 
 abstract class AbstractAuthentification
 {
@@ -14,7 +15,7 @@ abstract class AbstractAuthentification
     const ACCESS_LEVEL_NONE = -9999;
 
     /* la taill minimum des mot de pass */
-    const MIN_PASSWORD_LENGTH = 6;
+    const MIN_PASSWORD_LENGTH = 1;
 
     protected static function loadProfile(int $id, int $level): void
     {
@@ -36,11 +37,8 @@ abstract class AbstractAuthentification
 
         $_SESSION['user_profile']['id'] = $id;
         $_SESSION['user_profile']['access_level'] = $level;
-        echo $_SESSION['user_profile']['id'];
-        echo $_SESSION['user_profile']['access_level'];
+
     }
-
-
 
     public static function logout(): void
     {
@@ -161,7 +159,7 @@ abstract class AbstractAuthentification
 
 
         /* 
-         * La méthode login:
+         * La méthode checkPassword:
          * 
          * Méthode qui réalise la connexion d'un utilisateur.
          *
@@ -181,22 +179,11 @@ abstract class AbstractAuthentification
          */
 
         if (!(password_verify($given_pass, $db_hash))) {
-            throw new AuthentificationException("invalid Password !");
+            $data = [$given_pass, $db_hash];
+            $v = new ConnexionView($data);
+            $v->makePage();
         } else {
-            $config = [ /* ces informations doivent être dans un fichier ini */
-                'driver'    => 'mysql',
-                'host'      => 'localhost',
-                'database'  => 'tweet',
-                'username'  => 'root',
-                'password'  => '',
-                'charset'   => 'utf8',
-                'collation' => 'utf8_unicode_ci',
-                'prefix'    => ''
-            ];
-            $db = new \Illuminate\Database\Capsule\Manager();
-            $db->addConnection($config);
-            $db->bootEloquent();
-            $db->setAsGlobal();
+            self::loadProfile ($id,$level);
         }
     }
 }
