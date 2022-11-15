@@ -43,7 +43,7 @@ prefix    = ''
 ```
 ## Tester le site
 
-http://localhost/Atelier-1/main.php
+http://localhost/Atelier-1/
 
 Selon votre configuration, l'URL peut changer.
 
