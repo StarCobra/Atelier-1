@@ -16,7 +16,7 @@ php -v
 ```
 git clone git@github.com:StarCobra/Atelier-1.git
 cd Atelier-1
-composer update ou composer install
+composer update //ou composer install
 ```
 
 ## Installation
