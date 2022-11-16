@@ -1,4 +1,4 @@
-# Atelier n°1 (Media photo)
+# Atelier n°1 (Media Photo)
 ## JOMAA Akrem, POIROT Damien, SIX Léo, ZIDANE Waïl
 
 Du 7 au 14 novembre 2022
