@@ -5,12 +5,6 @@ Du 7 au 14 novembre 2022
 
 ## Spécifications techniques
 
-Version requise de node : 16.17.1 ou plus
-
-```
-node -v
-```
-
 Version requise de PHP sur le serveur : 8.0 ou plus
 
 ```
